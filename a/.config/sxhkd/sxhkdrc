@@ -1,10 +1,10 @@
 # keys
 
 super + z
-	st
+	~/git/st-tammy/st
 
-super + d
-	dmenu_run
+super + Escape
+	killall -9 lemonbar && killall -9 sxhkd && ~/git/lemonbar-xft/.lemonbar && sxhkd
 
 super + 0
 	amixer -q sset Master 4%+
