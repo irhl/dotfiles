@@ -7,10 +7,10 @@ super + Escape
 	killall -9 lemonbar && killall -9 sxhkd && ~/git/lemonbar-xft/.lemonbar && sxhkd
 
 super + 0
-	amixer -q sset Master 4%+
+	amixer -c 1 -q sset Master 4%+
 
 super + 9
-	amixer -q sset Master 4%-
+	amixer -c 1 -q sset Master 4%-
 
 # scripts
 
