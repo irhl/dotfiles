@@ -31,14 +31,17 @@ super + a
 super + Escape 
 	pkill -USR1 -x sxhkd
 
-mod4 + {1,2,3,4,5,6,7,8,9,0}
-	wmctrl -s {0,1,2,3,4,5,6,7,8,9}
-	
-mod4 + shift + {1,2,3,4,5,6,7,8,9}
-	wmctrl -r :ACITVE: -t {0,1,2,3,4,5,6,7,8,9}
+alt + 1
+	xdotool set_desktop 0
 
-mod4 + {c, v, shift + c, shift + v}
-	wmr 0 0 {-25 0, 0 -25, +25 0, 0 +25}
-	
-mod4 + shift + {h, j, k, l}
-	wmr {-10 0, 0 10, 0 -10, 10 0} 0 0
+alt + 2
+	xdotool set_desktop 1
+
+alt + 3
+	xdotool set_desktop 2
+
+alt + 4
+	xdotool set_desktop 3
+
+alt + 5 
+	xdotool set_desktop 4
