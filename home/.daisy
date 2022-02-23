@@ -1,17 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 export PS1="- "
-xset r rate 200 50
-
-export PATH=$PATH:/test
-export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib32
-export XDG_CONFIG_HOME=$HOME/.config
-
+export PATH="$HOME/bin:$PATH"
 export TERM=xterm
 export VISUAL=vim
 export EDITOR=vim
-
-##
+export SHFM_OPENER=$HOME/bin/shfm
+export XDG_CONFIG_HOME=$HOME/.config
+export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib32
+export WLR_DRM_DEVICES=/dev/dri/card0
 alias ls='ls --color=auto'
 alias vim="vim -u \$HOME/.config/vim/vimrc"
-alias firefox="firefox --enable-alsa"
+xset r rate 200 50
