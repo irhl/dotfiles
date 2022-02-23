@@ -1,0 +1,10 @@
+set encoding=utf-8
+scriptencoding utf-8
+set expandtab
+set nocompatible
+set noswapfile
+set number
+set backspace=indent,eol,start
+set viminfo+=n/tmp/viminfo
+set mouse=a
+

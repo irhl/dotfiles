@@ -1,0 +1,47 @@
+# keys
+
+super + z
+	~/git/st-tammy/st
+
+super + 0
+	amixer -c 1 -q sset Master 4%+
+
+super + 9
+	amixer -c 1 -q sset Master 4%-
+
+# scripts
+
+super + s
+	~/scripts/mim
+
+alt + q
+	~/scripts/mew -I
+
+alt + shift + q
+	~/scripts/mew -i
+
+#xdotool + wmctrl
+
+super + c
+	wmctrl -ic $(xdotool getactivewindow)
+
+super + a
+	wmctrl -ir $(xdotool getactivewindow) -b toggle,fullscreen
+
+super + Escape 
+	pkill -USR1 -x sxhkd
+
+alt + 1
+	xdotool set_desktop 0
+
+alt + 2
+	xdotool set_desktop 1
+
+alt + 3
+	xdotool set_desktop 2
+
+alt + 4
+	xdotool set_desktop 3
+
+alt + 5 
+	xdotool set_desktop 4
