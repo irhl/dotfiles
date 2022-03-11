@@ -1,2 +1,2 @@
 sh ~/.fehbg &
-exec sowm
+exec shod
