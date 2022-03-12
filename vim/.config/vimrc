@@ -1,0 +1,15 @@
+call plug#begin('~/.config/vim/plugged')
+Plug 'rstacruz/vim-closer'
+call plug#end()
+
+set makeprg=gcc\ %
+scriptencoding utf-8
+set encoding=utf-8
+set expandtab
+set nocompatible
+set noswapfile
+set mouse=a
+set viminfo+=n/tmp/viminfo
+set wrap linebreak nolist
+set statusline+=\ w:%{WordCount()},
+set laststatus=2 " show the statusline
