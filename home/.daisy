@@ -2,7 +2,6 @@
 
 export PS1="- "
 export PATH="$HOME/bin:$PATH"
-export TERM=xterm
 export VISUAL=vim
 export EDITOR=vim
 export XDG_CONFIG_HOME=$HOME/.config
