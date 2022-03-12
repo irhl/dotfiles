@@ -5,7 +5,6 @@ export PATH="$HOME/bin:$PATH"
 export TERM=xterm
 export VISUAL=vim
 export EDITOR=vim
-export SHFM_OPENER=$HOME/bin/shfm
 export XDG_CONFIG_HOME=$HOME/.config
 export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib32
 export WLR_DRM_DEVICES=/dev/dri/card0
