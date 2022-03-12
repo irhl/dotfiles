@@ -1,15 +1,6 @@
 super + z
 	st
 
-super + l
-	lxappearance
-
-super + shift + l
-	pavucontrol
-
-super + k
-	~/git/epick/epick
-
 super + 0
 	amixer -c 1 -q set Master 4%+
 
