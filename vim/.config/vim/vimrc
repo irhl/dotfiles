@@ -11,5 +11,3 @@ set noswapfile
 set mouse=a
 set viminfo+=n/tmp/viminfo
 set wrap linebreak nolist
-set statusline+=\ w:%{WordCount()},
-set laststatus=2 " show the statusline
