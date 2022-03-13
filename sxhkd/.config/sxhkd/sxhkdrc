@@ -8,13 +8,13 @@ super + 9
 	amixer -c 1 -q set Master 4%-
 
 super + s
-	~/bin/mim
+	~/.local/bin/mim
 
 alt + q
-	~/bin/mew -I
+	~/.local/bin/mew -I
 
 alt + shift + q
-	~/bin/mew -i
+	~/.local/bin/mew -i
 
 super + c
 	wmctrl -ic $(xdotool getactivewindow)
