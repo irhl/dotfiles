@@ -3,8 +3,8 @@
 take () {
 
 time=$(date +%F_%T)
-magick import ~/.config/scripts/magick-screenshot/"img_$time.png"
-notify-send screenshot_initiated "img_$time.png" -i ~/.config/scripts/magick-screenshot/"img_$time.png"
+magick import ~/.local/bin/magick-screenshot/"img_$time.png"
+notify-send screenshot_initiated "img_$time.png" -i ~/.local/bin/magick-screenshot/"img_$time.png"
 }
 
 take
