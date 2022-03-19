@@ -1,5 +1,7 @@
 call plug#begin('~/.config/vim/plugged')
+Plug 'dense-analysis/ale'
 Plug 'rstacruz/vim-closer'
+Plug 'mg979/vim-visual-multi'
 call plug#end()
 
 set makeprg=gcc\ %
@@ -11,3 +13,5 @@ set noswapfile
 set mouse=a
 set viminfo+=n/tmp/viminfo
 set wrap linebreak nolist
+set display=lastline
+set incsearch
