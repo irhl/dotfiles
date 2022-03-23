@@ -75,8 +75,8 @@ function MyTabLine()
 " hide statusline
 autocmd BufRead,BufNewFile * set laststatus=0
 
-packloadall				# load all plugins 
-" list of plugins stored		# /.vim/pack/plugins/
+packloadall				" load all plugins 
+" list of plugins stored		" /.vim/pack/plugins/
 " ap/vim-css-color
 " tpope/vim-sensible
 " terryma/vim-multiple-cursors
