@@ -1,6 +1,6 @@
 set t_Co=256				" enable 256-color
 set wrap linebreak nolist		" wrap words (good for essays)
-set display=lastline			" don't display this "@"
+set display=lastline			" don't display this @
 set breakindent				" behave normal when edit long lines
 set mouse=a				" enable mouse
 set backspace=indent,eol,start		" don't use vi backspace
