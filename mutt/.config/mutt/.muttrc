@@ -1,1 +1,19 @@
+set imap_user = user@example.com
+set imap_pass =
+set spoolfile = imaps://mail.example.com:999/INBOX
+set record = imaps://mail.example.com:999/sent
+set folder = imaps://mail.example.com:999
+set message_cachedir = ~/.config/mutt/cache/bodies
+set certificate_file = ~/.config/mutt/certificates
 
+set smtp_url = smtps://user@example.com@mail.example.com:999/
+set smtp_pass =
+set from = user@example.com
+set realname = "b"
+set mail_check = 300
+set edit_headers = yes
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set tunnel_is_secure = yes
+set imap_authenticators = login
+set smtp_authenticators = login

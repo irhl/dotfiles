@@ -1,0 +1,94 @@
+set t_Co=256				" enable 256-color
+set wrap linebreak nolist		" wrap words (good for essays)
+set display=lastline			" don't display this "@"
+set breakindent				" behave normal when edit long lines
+set mouse=a				" enable mouse
+set backspace=indent,eol,start		" don't use vi backspace
+set scrolloff=5				" lazy scroll
+set incsearch				" real-time search
+set expandtab				" i don't know, but it's for tabs
+set makeprg=gcc\ %			" gcc is selected for :make
+set modelines=0				" vulnerability stuff
+set nomodeline				" vulnerability stuff
+set nocompatible			" don't use vi settings
+set noswapfile				" don't make swap files
+set viminfo+=n/tmp/viminfo		" move viminfo to /tmp/
+
+set tabline=%!MyTabLine()
+set showtabline=2
+set noshowmode				" don't show stuff bottom left
+set shortmess+=F			" don't show stuff bottom left
+
+nnoremap <C-A> gT			" remap next tab to 	ctrl + a
+nnoremap <C-Z> gt			" remap prev tab to	ctrl + z 
+nnoremap <C-S> :w<cr>			" remap save to 	ctrl + s
+nnoremap <C-C> :q!<cr>			" remap quit to 	ctrl + c
+
+hi Identifier   ctermfg=12      ctermbg=None    cterm=None
+hi Constant     ctermfg=12      ctermbg=None    cterm=None
+hi Comment      ctermfg=8       ctermbg=None    cterm=None
+hi Special      ctermfg=15      ctermbg=None    cterm=None
+hi Statement    ctermfg=15      ctermbg=None    cterm=None
+hi Conditional  ctermfg=15      ctermbg=None    cterm=None
+hi Repeat       ctermfg=15      ctermbg=None    cterm=None
+hi Structure    ctermfg=15      ctermbg=None    cterm=None
+hi Function     ctermfg=15      ctermbg=None    cterm=None
+
+hi TabLine      ctermfg=2       ctermbg=4       cterm=None
+hi TabLineSel   ctermfg=12      ctermbg=2       cterm=None
+
+" display time and date to bottom right
+set rulerformat=%40(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+
+" removed close button from tabline
+function MyTabLine()
+          let s = ''
+          for i in range(tabpagenr('$'))
+            " select the highlighting
+            if i + 1 == tabpagenr()
+              let s .= '%#TabLineSel#'
+            else
+              let s .= '%#TabLine#'
+            endif
+
+            " set the tab page number (for mouse clicks)
+            let s .= '%' . (i + 1) . 'T'
+            " display tabnumber (for use with <count>gt, etc)
+            let s .= ' '. (i+1) . ' '
+
+            " the label is made by MyTabLabel()
+            let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+           endfor
+
+            " after the last tab fill with TabLineFill and reset tab page nr
+           let s .= '%#TabLineFill#%T'
+
+           return s
+          endfunction
+
+        function MyTabLabel(n)
+          let buflist = tabpagebuflist(a:n)
+          let winnr = tabpagewinnr(a:n)
+          return bufname(buflist[winnr - 1])
+        endfunction
+
+" hide statusline
+autocmd BufRead,BufNewFile * set laststatus=0
+
+packloadall				# load all plugins 
+" list of plugins stored		# /.vim/pack/plugins/
+" ap/vim-css-color
+" tpope/vim-sensible
+" terryma/vim-multiple-cursors
+
+" remove newlines & reset cursor position
+autocmd bufwritepre * let currPos = getpos(".")
+autocmd bufwritepre * %s/\s\+$//e
+autocmd bufwritepre * %s/\n\+\%$//e
+autocmd bufwritepre *.[ch] %s/\%$/\r/e
+autocmd bufwritepre * cal cursor(currPos[1], currPos[2])
+
+" reload configuration & compile files on save
+cnoremap w!! execute 'write !sudo tee % >/dev/null'
+autocmd bufwritepost Xresources,Xdefaults,xresources,xdefaults !xrdb %
+autocmd bufwritepost ~/bin/vanilla/vanilla.1 silent !cd ~/bin/vanilla/; make install
