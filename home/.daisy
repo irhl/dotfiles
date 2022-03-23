@@ -1,12 +1,5 @@
 #!/bin/bash
 
-export PS1="- "
-export PATH="$HOME/.local/bin:$PATH"
-export VISUAL=vim
-export EDITOR=vim
-export XDG_CONFIG_HOME=$HOME/.config
-export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib32
-export WLR_DRM_DEVICES=/dev/dri/card0
 alias ls='ls --color=auto'
-alias vim="vim -u \$HOME/.config/vim/vimrc"
+alias vim="vim -u \$HOME/.vim/vimrc"
 xset r rate 200 50
