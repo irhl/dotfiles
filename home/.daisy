@@ -1,5 +1,12 @@
-#!/bin/bash
+[[ $- != *i* ]] && return
 
+alias nnn='$HOME/.local/share/bin/fm'
+alias mp4='mpv $@ --ytdl-format=18'
+alias firefox='firefox --alsa'
 alias ls='ls --color=auto'
-alias vim="vim -u \$HOME/.vim/vimrc"
-xset r rate 200 50
+alias htop='htop -M'
+alias gotop='gotop --nvidia'
+alias call='grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-'
+
+## NSXIV LOAD PALETTE
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
