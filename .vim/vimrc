@@ -1,94 +1,99 @@
-set t_Co=256				" enable 256-color
-set wrap linebreak nolist		" wrap words (good for essays)
-set display=lastline			" don't display this @
-set breakindent				" behave normal when edit long lines
-set mouse=a				" enable mouse
-set backspace=indent,eol,start		" don't use vi backspace
-set scrolloff=5				" lazy scroll
-set incsearch				" real-time search
-set expandtab				" i don't know, but it's for tabs
-set makeprg=gcc\ %			" gcc is selected for :make
-set modelines=0				" vulnerability stuff
-set nomodeline				" vulnerability stuff
-set nocompatible			" don't use vi settings
-set noswapfile				" don't make swap files
-set viminfo+=n/tmp/viminfo		" move viminfo to /tmp/
+let g:minimap_width = 15
+let g:minimap_auto_start = 1
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme flowershop
 
-set tabline=%!MyTabLine()
-set showtabline=2
-set noshowmode				" don't show stuff bottom left
-set shortmess+=F			" don't show stuff bottom left
+packloadall
+" ap/vim-css-color                view css colors
+" dense-analysis/ale              preview syntax errors
+" tpope/vim-sensible              improve defaults
+" tpope/vim-endwise               automated statements
+" tpope/vim-surround              automated brackets
+" rstacruz/vim-closer             closes brackets
+" mg979/vim-visual-multi          multiple cursors
+" wfxr/minimap.vim                minimap view
 
-nnoremap <C-A> gT			" remap next tab to 	ctrl + a
-nnoremap <C-Z> gt			" remap prev tab to	ctrl + z 
-nnoremap <C-S> :w<cr>			" remap save to 	ctrl + s
-nnoremap <C-C> :q!<cr>			" remap quit to 	ctrl + c
+nnoremap vap v2ap
+nnoremap no :noh<cr>
+nnoremap qt *<cr>
+nnoremap qr :mark o<bar>:echo printf('*calls kukouoh')<cr>
+noremap qf 'o
+noremap qq $
+noremap w 0
+noremap qw `.<cr>
+noremap s <C-G> j
+noremap join <C-G> J
+nnoremap <C-D> 85<up>
+nnoremap <C-B> 85<cr>
+nnoremap <C-A> gT
+nnoremap <C-Z> gt
+nnoremap <C-S> :w<cr>
+nnoremap <C-C> :qa<cr>
 
-hi Identifier   ctermfg=12      ctermbg=None    cterm=None
-hi Constant     ctermfg=12      ctermbg=None    cterm=None
-hi Comment      ctermfg=8       ctermbg=None    cterm=None
-hi Special      ctermfg=15      ctermbg=None    cterm=None
-hi Statement    ctermfg=15      ctermbg=None    cterm=None
-hi Conditional  ctermfg=15      ctermbg=None    cterm=None
-hi Repeat       ctermfg=15      ctermbg=None    cterm=None
-hi Structure    ctermfg=15      ctermbg=None    cterm=None
-hi Function     ctermfg=15      ctermbg=None    cterm=None
+noremap ; :
+map q <Nop>
+cabbrev ma Texplore<cr>
+cabbrev mm source ~/.vim/vimrc <cr>
+cabbrev mw w !wl-copy<cr>
+cabbrev ms mksession! ~/book/session.vim<cr>
+cabbrev mr source ~/book/session.vim<cr>
+cabbrev md r!date +\%c<cr>
+cabbrev mz !stty size
 
-hi TabLine      ctermfg=2       ctermbg=4       cterm=None
-hi TabLineSel   ctermfg=12      ctermbg=2       cterm=None
+nnoremap <F3> :NnnPicker<cr>
+let g:nnn#command = 'nnn -C'
+let g:netrw_home = $HOME"/.vim"
+let g:netrw_banner       = 0
+let g:netrw_keepdir      = 0
+let g:netrw_liststyle    = 1 " or 3
+let g:netrw_sort_options = 'i'
 
-" display time and date to bottom right
-set rulerformat=%40(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+set encoding=utf8                 " change output encoding
+set fileformats=unix,dos,mac      " unix > dos > mac priority
+set backspace=indent,eol,start    " backspace behavior fix
+set mouse-=a                      " disable mouse
+set modelines=0                   " security (1)
+set nomodeline                    " security (2)
+set nocompatible                  " drop vi compatibility
+set number                        " line number
+set smartcase                     " lowercase string priority
+set hlsearch                      " show all possible match
+set incsearch                     " show match
+set lbr                           " text wrap (1)
+set wrap                          " text wrap (2)
+set breakindent                   " text wrap (3)
+set list                          " reveal illegal spaces
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+set display=lastline              " stop showing me this @@@@
+set scrolloff=12                  " equip torch
+set sidescrolloff=5               " place lantern
+set synmaxcol=150                 " performance (1)
+set undolevels=800                " performance (2)
+set undoreload=800                " performance (3)
+set nottyfast                     " performance (4)
+set lazyredraw                    " restrict redraw
 
-" removed close button from tabline
-function MyTabLine()
-          let s = ''
-          for i in range(tabpagenr('$'))
-            " select the highlighting
-            if i + 1 == tabpagenr()
-              let s .= '%#TabLineSel#'
-            else
-              let s .= '%#TabLine#'
-            endif
+set undofile
+set backup
+set writebackup
+set noswapfile
+set undodir=~/.vim/tmp/
+set backupdir=~/.vim/tmp/bak/
+set viminfo+=n~/.vim/viminfo
 
-            " set the tab page number (for mouse clicks)
-            let s .= '%' . (i + 1) . 'T'
-            " display tabnumber (for use with <count>gt, etc)
-            let s .= ' '. (i+1) . ' '
-
-            " the label is made by MyTabLabel()
-            let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-           endfor
-
-            " after the last tab fill with TabLineFill and reset tab page nr
-           let s .= '%#TabLineFill#%T'
-
-           return s
-          endfunction
-
-        function MyTabLabel(n)
-          let buflist = tabpagebuflist(a:n)
-          let winnr = tabpagewinnr(a:n)
-          return bufname(buflist[winnr - 1])
-        endfunction
-
-" hide statusline
-autocmd BufRead,BufNewFile * set laststatus=0
-
-packloadall				" load all plugins 
-" list of plugins stored		" /.vim/pack/plugins/
-" ap/vim-css-color
-" tpope/vim-sensible
-" terryma/vim-multiple-cursors
+" trim trailing whitespace
+let &fcs='eob: '
 
 " remove newlines & reset cursor position
-autocmd bufwritepre * let currPos = getpos(".")
-autocmd bufwritepre * %s/\s\+$//e
-autocmd bufwritepre * %s/\n\+\%$//e
-autocmd bufwritepre *.[ch] %s/\%$/\r/e
-autocmd bufwritepre * cal cursor(currPos[1], currPos[2])
+au bufwritepre * let currPos = getpos(".")
+au bufwritepre * %s/\s\+$//e
+au bufwritepre * %s/\n\+\%$//e
+au bufwritepre *.[ch] %s/\%$/\r/e
+au bufwritepre * cal cursor(currPos[1], currPos[2])
 
-" reload configuration & compile files on save
-cnoremap w!! execute 'write !sudo tee % >/dev/null'
-autocmd bufwritepost Xresources,Xdefaults,xresources,xdefaults !xrdb %
-autocmd bufwritepost ~/bin/vanilla/vanilla.1 silent !cd ~/bin/vanilla/; make install
+" on save conditions
+cnoremap w!! execute 'write !doas tee % >/dev/null'
+au bufwritepost .Xresources,xresources !xrdb %
+au bufwritepre [:;]* throw 'Forbidden file name: ' . expand('<afile>')
+au bufwritepre * let &bex = '-' . strftime("%F-%H") . '.bak'
