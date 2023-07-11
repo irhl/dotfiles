@@ -1,11 +1,17 @@
-#!/bin/sh
-
-export PS1="- "
-export VISUAL=vim
-export EDITOR=vim
-export ENV="$HOME/.daisy"
-export PATH="$HOME/bin:$PATH"
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_CONFIG_HOME=$HOME/.config
-export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/lib32
+export PS1='-> '
+export ENV=$HOME/.daisy
+export PATH=$HOME/.local/share/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
+export LESSHISTFILE=-
+export WLR_DRM_NO_MODIFIERS=1
 export WLR_DRM_DEVICES=/dev/dri/card0
+export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+
+## FILL EMPTY WAYLAND SOCKET
+if [ ! -d "${XDG_RUNTIME_DIR}" ]; then
+    mkdir "${XDG_RUNTIME_DIR}"
+    chmod 0700 "${XDG_RUNTIME_DIR}"
+fi
+
+## MY EARPHONES ARE NOT LOUD
+amixer sset 'Master' 100%
