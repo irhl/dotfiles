@@ -56,26 +56,10 @@
                 ${VIDEO} "$1"
         elif [ "${1#*.}" = "gif" ];then
                 ${IMAGE} "$1" "$PWD"
-        elif [ "${1#*.}" = "gifv" ];then
-                :
         elif [ "${1#*.}" = "mp4" ];then
                 ${VIDEO} "$1"
         elif [ "${1#*.}" = "mkv" ];then
                 ${VIDEO} "$1"
-        elif [ "${1#*.}" = "m4a" ];then
-                :
-        elif [ "${1#*.}" = "m3u" ];then
-                :
-        elif [ "${1#*.}" = "mpeg" ];then
-                :
-        elif [ "${1#*.}" = "avi" ];then
-                :
-        elif [ "${1#*.}" = "wmv" ];then
-                :
-        elif [ "${1#*.}" = "wav" ];then
-                :
-        elif [ "${1#*.}" = "ogg" ];then
-                :
         elif [ "${1#*.}" = "opus" ];then
                 ${TERM} ${MUSIC} "$1"
         elif [ "${1#*.}" = "mp3" ];then
