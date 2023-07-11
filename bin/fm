@@ -1,4 +1,11 @@
 #!/bin/sh
+#
+# AUTHOR: mako
+# fm - a launcher that stores environment variables for the
+# nnn file manager.
+#
+# ?: I made the script so my .bashrc can break free from
+# loading them each session or during terminal input events.
 
 export NNN_USE_EDITOR=1
 export NNN_COLORS=1683
