@@ -1,0 +1,87 @@
+#!/usr/bin/sh
+#
+# AUTHOR: mako
+# milf - a mimeless file opener
+# for the nnn file manager.
+#
+# thanks to muh-5 (muh-5/script/nnnopen)
+#
+# ?: Out of boredom, I extended the script by
+# drawing a cherry blossom and this was to test
+# the beauty of my new colorscheme "flowershop".
+
+
+
+                           999
+                       999 999 999
+                        9999  9999 999
+                     999 99 999 99999
+                   999  999 999  99999
+                    2 hi 2 > /dev/null 99
+                    1 "z" "r rrr " 12 12
+                         "llr" "r" 11  1
+                          "lr"
+                  ~mako    "lr"
+                           "nnn"  #h--h#
+                          "11720" ignore errors
+                        EXTRACT="7z x"
+                      BROWSER="firefox --alsa"
+                   TERM="alacritty -e"
+                 IMAGE="nsxiv -s F -z 25 -t -a"
+                VIDEO=mpv
+                MUSIC="foot pretzel" # (img2sixel)
+
+    if [ ! -f "$1" ];then
+            exit
+    fi
+
+    # bored and mimeless
+    if [ "${1#*.}" = "html" ];then
+        ${BROWSER} "$1"
+        elif [ "${1#*.}" = "docx" ];then
+                ${BROWSER} "$1"
+        elif [ "${1#*.}" = "doc" ];then
+                ${BROWSER} "$1"
+        elif [ "${1#*.}" = "pdf" ];then
+                ${BROWSER} "$1"
+        elif [ "${1#*.}" = "png" ];then
+                ${IMAGE} "$1" "$PWD"
+        elif [ "${1#*.}" = "jpg" ];then
+                ${IMAGE} "$1" "$PWD"
+        elif [ "${1#*.}" = "jpeg" ];then
+                ${IMAGE} "$1" "$PWD"
+        elif [ "${1#*.}" = "webp" ];then
+                ${IMAGE} "$1" "$PWD"
+        elif [ "${1#*.}" = "webm" ];then
+                ${VIDEO} "$1"
+        elif [ "${1#*.}" = "gif" ];then
+                ${IMAGE} "$1" "$PWD"
+        elif [ "${1#*.}" = "gifv" ];then
+                :
+        elif [ "${1#*.}" = "mp4" ];then
+                ${VIDEO} "$1"
+        elif [ "${1#*.}" = "mkv" ];then
+                ${VIDEO} "$1"
+        elif [ "${1#*.}" = "m4a" ];then
+                :
+        elif [ "${1#*.}" = "m3u" ];then
+                :
+        elif [ "${1#*.}" = "mpeg" ];then
+                :
+        elif [ "${1#*.}" = "avi" ];then
+                :
+        elif [ "${1#*.}" = "wmv" ];then
+                :
+        elif [ "${1#*.}" = "wav" ];then
+                :
+        elif [ "${1#*.}" = "ogg" ];then
+                :
+        elif [ "${1#*.}" = "opus" ];then
+                ${TERM} ${MUSIC} "$1"
+        elif [ "${1#*.}" = "mp3" ];then
+                ${TERM} ${MUSIC} "$1"
+        elif [ "${1#*.}" = "flv" ];then
+                ${TERM} ${MUSIC} "$1"
+        else
+             ${TERM} vim "$1"
+    fi
