@@ -1,0 +1,102 @@
+set $mod Mod4
+set $alt Mod1
+
+gaps outer 90
+gaps inner -40
+gaps horizontal 40
+gaps left 172
+gaps right 388
+gaps top 158
+gaps bottom 98
+output VGA-1 mode --custom 1920x1080@59Hz
+
+default_border pixel 4
+default_floating_border pixel 0
+hide_edge_borders smart
+titlebar_padding 10 14
+
+floating_modifier $mod normal
+for_window [app_id=".*"] floating enable
+for_window [title="mpv"] title_format "<span></span>", \
+titlebar_padding 10 14, border normal 0
+for_window [title="alacritty"] titlebar_padding 0 0, border pixel 0
+for_window [title="firefox"] titlebar_padding 0 0, border pixel 0
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+q exit
+bindsym $mod+c kill
+bindsym $mod+a fullscreen
+bindsym $mod+f floating toggle
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+## VIM LAYER
+#bindsym $mod+r exec swaymsg resize set 612px 720px
+#bindsym $mod+r exec swaymsg resize set 666px 820px
+bindsym $mod+r exec swaymsg resize set 766px 820px
+
+## TINY IRC LAYER
+bindsym $mod+e exec swaymsg resize set 480px 420px
+
+## NSXIV GRID LAYER
+bindsym $mod+d exec swaymsg resize set 420px 480px
+
+## NEOFETCH LAYER
+bindsym $mod+t exec swaymsg resize set 550px 320px
+
+## DIDN'T BRING A MOUSE
+bindsym $alt+i focus up
+bindsym $alt+j focus down
+bindsym $alt+k focus left
+bindsym $alt+l focus right
+bindsym $mod+i move up 25 px
+bindsym $mod+k move down 25 px
+bindsym $mod+j move left 25 px
+bindsym $mod+l move right 25 px
+
+## EXECUTABLE PROFILE
+bindsym $mod+0 exec amixer -c 1 -q set Master 5%+
+bindsym $mod+9 exec amixer -c 1 -q set Master 5%-
+bindsym $mod+n exec firefox
+bindsym $mod+z exec alacritty -e bash --rcfile $HOME/.daisy
+bindsym $mod+Shift+z exec foot
+bindsym $mod+s exec grim -t png -g "$(slurp)" \
+-- $HOME/screenshots/$(date +%F-%H-%M-%S).png
+
+## STARTUP PROFILE
+exec swww init
+exec swww img ~/objects/untitled.png
+# exec_always sh -c "killall yambar; yambar &"
+
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 50
+}
+
+# CLASS COLOR
+set $color0 #efcf9e
+set $color1 #99826b
+
+## CLASS                1. bdr   2. bg    3. txt   4. ind   5. chld
+client.focused          $color0  $color0  $color0  $color0  $color0
+client.focused_inactive $color0  $color0  $color0  $color0  $color0
+client.unfocused        $color1  $color1  $color1  $color1  $color1
+client.urgent           $color0  $color0  $color0  $color0  $color0
