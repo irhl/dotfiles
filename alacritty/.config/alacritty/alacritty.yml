@@ -1,0 +1,68 @@
+window:
+  dimensions:
+    columns: 50
+    lines: 16
+
+  padding:
+    x: 18
+    y: 18
+
+  dynamic_padding: true
+
+font:
+  normal:
+    family: Cherry
+    style: Bold
+
+  size: 14.0
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+colors:
+  cursor:
+    text: "#917967"
+    cursor: "#c3fbb6"
+
+  selection:
+    text: "#47392f"
+    background: "#917967"
+
+  primary:
+    foreground: "#a58b77"
+    background: "#47392f"
+
+  normal:
+    black: "#99806e"
+    red: "#dbc1a2"
+    green: "#b6c698"
+    yellow: "#f4c1ba"
+    blue: "#dbabc3"
+    magenta: "#a07275"
+    cyan: "#cca380"
+    white: "#705a4b"
+
+  bright:
+    black: "#7c6757"
+    red: "#c4a683"
+    green: "#8daf85"
+    yellow: "#e29e9e"
+    blue: "#cc90cc"
+    magenta: "#8c6964"
+    cyan: "#bc926d"
+    white: "#eaca93"
+
+    indexed_colors:
+      - { index: 16, color: '#514036"'}
+      - { index: 17, color: '#DC8A78' }
+
+  unfocused_hollow: true
