@@ -6,6 +6,7 @@
 ├─ac: x86_64 </br>
 ├─sh: bash </br>
 ├─wm: sway </br>
+├─fm: nnn </br>
 ├─imv: mpv, nsxiv </br>
 ├─music: piko </br>
 ├─audio: alsa </br>
