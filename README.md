@@ -1,7 +1,7 @@
 <img src="https://cdn.discordapp.com/attachments/635625917623828520/1129446467585708082/2023-07-14-23-59-45.png" alt="img" height="300px" align="left"/>
 <h6>
 🏡 🌳</br>
----------------------------- </br>
+-------------------------</br>
 ├─os: Void Linux </br>
 ├─ac: x86_64 </br>
 ├─sh: bash </br>
@@ -11,4 +11,4 @@
 ├─music: piko </br>
 ├─audio: alsa </br>
 ├─terminal: alacritty </br>
-└─colorscheme: flowershop </br>
+└─colscheme: flowershop </br>
