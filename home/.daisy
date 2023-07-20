@@ -1,11 +1,36 @@
-[[ $- != *i* ]] && return
+#!/bin/sh
 
-alias nnn='$HOME/.local/share/bin/fm'
-alias mp4='mpv $@ --ytdl-format=18'
-alias firefox='firefox --alsa'
-alias ls='ls --color=auto'
-alias htop='htop -M'
-alias call='grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-'
+unset MAIL
+unset LANGUAGE
+unset MOTD_SHOWN
 
 ## NSXIV LOAD PALETTE
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+
+    while read _ _ _ line _ _ ;do
+            printf '%s\n' "$line"
+         done < /proc/version
+
+[[ $- != *i* ]] && return
+
+COL0='\[\033[1;30m\]'
+COL1='\[\033[1;31m\]'
+COL4='\[\033[1;34m\]'
+
+if [ "$TERM" = xterm-256color ]; then
+      export PS1="$COL0\D{%H:%M} $COL4\$USER $COL1"
+    fi
+
+alias lc='grim -g "$(slurp -p)" \
+-t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-'
+
+alias 1='FC_DEBUG=1024 &'
+alias 2='FC_DEBUG=2024 &'
+alias lv='fuser -fv /dev/snd/* /dev/dsp*'
+alias ls='ls -rt --color=auto'
+alias mp4="mpv $@ --ytdl-format=18"
+alias nnn=-
+alias firefox='firefox --alsa'
+alias htop='htop -M'
+alias sway=/usr/bin/sway
+alias swayfx=/usr/local/bin/sway
