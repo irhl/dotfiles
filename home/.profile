@@ -1,4 +1,3 @@
-export PS1='-> '
 export ENV=$HOME/.daisy
 export PATH=$HOME/.local/share/bin:$PATH
 export PATH=$PATH:$HOME/.cargo/bin
