@@ -1,0 +1,24 @@
+defaults.ctl.card 1
+defaults.pcm.card 1
+
+# set softvol
+pcm.!default {
+      type plug
+      slave.pcm "softvol"
+  }
+
+  # set dmix
+  pcm.softvol {
+      type softvol
+      slave {
+          pcm "dmix"
+      }
+      control {
+          # volume boost
+          name "Pre-Amp"
+          card 1
+      }
+      min_dB -5.0
+      max_dB 20.0
+      resolution 6
+  }
