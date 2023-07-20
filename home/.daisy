@@ -5,7 +5,7 @@ unset LANGUAGE
 unset MOTD_SHOWN
 
 ## NSXIV LOAD PALETTE
-[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+[ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
     while read _ _ _ line _ _ ;do
             printf '%s\n' "$line"
