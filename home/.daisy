@@ -11,8 +11,6 @@ unset MOTD_SHOWN
             printf '%s\n' "$line"
          done < /proc/version
 
-[[ $- != *i* ]] && return
-
 COL0='\[\033[1;30m\]'
 COL1='\[\033[1;31m\]'
 COL4='\[\033[1;34m\]'
