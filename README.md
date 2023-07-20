@@ -10,6 +10,6 @@
 ├─imv: mpv, nsxiv </br>
 ├─music: piko </br>
 ├─audio: alsa </br>
-├─terminal: alacritty </br>
 ├─font: cherry</br>
-└─palette: flowershop </br>
+├─palette: flowershop </br>
+└─terminal: alacritty </br>
