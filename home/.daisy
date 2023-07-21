@@ -4,16 +4,17 @@ unset MAIL
 unset LANGUAGE
 unset MOTD_SHOWN
 
-## NSXIV LOAD PALETTE
+# nsxiv load palette
 [ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
     while read _ _ _ line _ _ ;do
             printf '%s\n' "$line"
-         done < /proc/version
+         done < "$HOME/notes"
 
 COL0='\[\033[1;30m\]'
 COL1='\[\033[1;31m\]'
 COL4='\[\033[1;34m\]'
+print=printf
 
 if [ "$TERM" = xterm-256color ]; then
       export PS1="$COL0\D{%H:%M} $COL4\$USER $COL1"
@@ -22,6 +23,7 @@ if [ "$TERM" = xterm-256color ]; then
 alias lc='grim -g "$(slurp -p)" \
 -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-'
 
+alias 0="$print '\033[2J\033[;r'"
 alias 1='FC_DEBUG=1024 &'
 alias 2='FC_DEBUG=2024 &'
 alias lv='fuser -fv /dev/snd/* /dev/dsp*'
