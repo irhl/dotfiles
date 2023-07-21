@@ -1,23 +1,97 @@
+# x x :a
+
+# Autoload Configuration
+@hooks [
+    {
+        func load
+        files [
+            "~/.asoundrc"
+        ]
+
+        @func getenv
+        vars [
+            HOME # printf '%s\n' "$HOME"
+        ]
+        errors false
+    }
+]
+
+# Test Sound Output:
+#    aplay -D hw:1;0 file.mp3
+#    arecord -d 1;0 file.mp3
+#    speaker-test -D hw:1,0 -c2
+#    speaker-test -t wav -c 2
 defaults.ctl.card 1
 defaults.pcm.card 1
 
-# set softvol
+# Dependencies: (xbps)
+#    alsa-plugins-samplerate
+#    alsa-plugins-speex
+defaults.pcm.rate_converter "speexrate_best"
+defaults.pcm.rate_converter "samplerate_best"
+
+rate_value=44100
+
+# Playback Alias
+pcm_slave.slavej {
+  pcm "hw:1,0"
+  channels 2
+    rate {
+        @func refer
+        name rate_value
+    }
+}
+
+pcm.plugj {
+  type plug
+  slave slavej
+}
+
+# Enable dmix (S/PDIF) only
+# pcm.dsp {
+#     type plug
+#     slave.pcm "dmix"
+# }
+
+# Change Sampling Rate
+pcm.!default {
+      type plug
+      slave.pcm "dmix"
+}
+
+pcm.!default {
+  type dmix
+  ipc_key 1024
+  slave {
+    pcm "plughw:1,0"
+    periods 128
+    period_time 0
+    period_size 1024
+    buffer_size 4096
+    rate {
+        @func refer
+        name rate_value
+      }
+   }
+}
+
+# Volume Boost
 pcm.!default {
       type plug
       slave.pcm "softvol"
   }
 
-  # set dmix
   pcm.softvol {
       type softvol
       slave {
           pcm "dmix"
       }
+
       control {
-          # volume boost
           name "Pre-Amp"
           card 1
       }
+
       min_dB -5.0
       max_dB 20.0
       resolution 6
