@@ -1,5 +1,3 @@
-let g:minimap_width = 15
-let g:minimap_auto_start = 1
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colorscheme flowershop
@@ -11,43 +9,37 @@ packloadall
 " tpope/vim-endwise               automated statements
 " tpope/vim-surround              automated brackets
 " rstacruz/vim-closer             closes brackets
+" alvan/vim-closetag              closes html tags
 " mg979/vim-visual-multi          multiple cursors
+" junegunn/goyo.vim               window padding
 " wfxr/minimap.vim                minimap view
+" vim-skk/eskk.vim                skk japanese text input
 
-nnoremap vap v2ap
-nnoremap no :noh<cr>
-nnoremap qt *<cr>
-nnoremap qr :mark o<bar>:echo printf('*calls kukouoh')<cr>
-noremap qf 'o
-noremap qq $
-noremap w 0
-noremap qw `.<cr>
-noremap s <C-G> j
-noremap join <C-G> J
-nnoremap <C-D> 85<up>
-nnoremap <C-B> 85<cr>
-nnoremap <C-A> gT
-nnoremap <C-Z> gt
-nnoremap <C-S> :w<cr>
-nnoremap <C-C> :qa<cr>
+nn vap v2ap
+nn no :noh<cr>
+nn qt *<cr>
+nn qr :mark o<bar>:echo printf('*calls kukouoh')<cr>
+no qe 'o
+no qq $
+no w 0
+no qw `.<cr>
+no s <C-G> j
+no <C-G> J
+nn <C-D> 85<up>
+nn <C-B> 85<cr>
+nn <C-A> :bn<cr>
+nn <C-Z> :bp<cr>
+nn <C-S> :w<cr>
+nn <C-C> :qa<cr>
 
-noremap ; :
+no ; :
 map q <Nop>
-cabbrev ma Texplore<cr>
-cabbrev mm source ~/.vim/vimrc <cr>
-cabbrev mw w !wl-copy<cr>
-cabbrev ms mksession! ~/book/session.vim<cr>
-cabbrev mr source ~/book/session.vim<cr>
-cabbrev md r!date +\%c<cr>
-cabbrev mz !stty size
-
-nnoremap <F3> :NnnPicker<cr>
-let g:nnn#command = 'nnn -C'
-let g:netrw_home = $HOME"/.vim"
-let g:netrw_banner       = 0
-let g:netrw_keepdir      = 0
-let g:netrw_liststyle    = 1 " or 3
-let g:netrw_sort_options = 'i'
+ca mm source ~/.vim/vimrc <cr>
+ca mw w !wl-copy<cr>
+ca ms mksession! ~/book/session.vim<cr>
+ca ma source ~/book/session.vim<cr>
+ca md r!date +\%c<cr>
+ca mz !stty size
 
 set encoding=utf8                 " change output encoding
 set fileformats=unix,dos,mac      " unix > dos > mac priority
@@ -63,8 +55,6 @@ set incsearch                     " show match
 set lbr                           " text wrap (1)
 set wrap                          " text wrap (2)
 set breakindent                   " text wrap (3)
-set list                          " reveal illegal spaces
-set listchars=tab:>-,trail:~,extends:>,precedes:<
 set display=lastline              " stop showing me this @@@@
 set scrolloff=12                  " equip torch
 set sidescrolloff=5               " place lantern
@@ -82,6 +72,9 @@ set undodir=~/.vim/tmp/
 set backupdir=~/.vim/tmp/bak/
 set viminfo+=n~/.vim/viminfo
 
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+
 " trim trailing whitespace
 let &fcs='eob: '
 
@@ -93,7 +86,72 @@ au bufwritepre *.[ch] %s/\%$/\r/e
 au bufwritepre * cal cursor(currPos[1], currPos[2])
 
 " on save conditions
-cnoremap w!! execute 'write !doas tee % >/dev/null'
+ca w!! w !doas tee % >/dev/null<cr>
 au bufwritepost .Xresources,xresources !xrdb %
 au bufwritepre [:;]* throw 'Forbidden file name: ' . expand('<afile>')
 au bufwritepre * let &bex = '-' . strftime("%F-%H") . '.bak'
+
+let g:eskk#directory = {
+    \  'path': '"~/.config/eskk"',
+    \}
+
+let g:eskk#dictionary = {
+    \  'path': '"~/.config/eskk/SKK-JISYO.L"',
+    \  'sorted': '1',
+    \  'encoding': 'utf-8',
+    \}
+
+let g:eskk#large_dictionary = {
+    \  'path': '"~/.config/eskk/SKK-JISYO.L"',
+    \  'sorted': '1',
+    \  'encoding': 'euc-jp',
+    \}
+
+let g:eskk#kakutei_when_unique_candidate = 1
+let g:eskk#enable_completion = 0
+let g:eskk#no_default_mappings = 1
+let g:eskk#keep_state = 0
+let g:eskk#egg_like_newline = 1
+
+ino <C-K> <C-O>:set keymap:kana<cr>
+ino <C-I> <C-O>:set keymap:<cr>
+nn <silent> <F3> :call LineNr()<cr>
+nn <silent> <F4> :call Paste()<cr>
+
+function! LineNr()
+    if g:lines
+        :set nonumber
+        :echo printf('')
+        let g:lines = 0
+    else
+        :set number
+        :echo printf('')
+        let g:lines = 1
+    endif
+endfunction
+
+function! Paste()
+    if g:lines
+        :set paste!
+        :echo printf('[x] paste')
+        let g:lines = 0
+    else
+        :set paste
+        :echo printf('[*] paste')
+        let g:lines = 1
+    endif
+endfunction
+
+let g:lines = 0
+let g:goyo_width = 75
+let g:goyo_height = 50
+
+au vimresized * if exists('#goyo') | exe "normal \<c-w>=" | endif
+au vimenter * :Goyo
+au vimleave * :Goyo!
+
+let g:minimap_width = 15
+let g:minimap_auto_start = 0
+
+set showtabline=0
+au bufread,bufnewfile * set ruler
