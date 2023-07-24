@@ -1,4 +1,10 @@
 window:
+  dynamic_padding: true
+  dynamic_title: true
+  decorations: none
+  resize_increments: true
+  opacity: 1.0
+
   dimensions:
     columns: 50
     lines: 16
@@ -7,14 +13,12 @@ window:
     x: 18
     y: 18
 
-  dynamic_padding: true
-
 font:
   normal:
     family: Cherry
     style: Bold
 
-  size: 14.0
+  size: 12.0
 
   offset:
     x: 0
@@ -25,44 +29,53 @@ font:
     y: 0
 
 scrolling:
-  history: 10000
+  history: 250
   multiplier: 3
+
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+
+  unfocused_hollow: true
 
 colors:
   cursor:
-    text: "#917967"
-    cursor: "#c3fbb6"
+    text: "#47292f"
+    cursor: "#dbc1a2"
 
   selection:
     text: "#47392f"
-    background: "#917967"
+    background: "#dbc1a2"
+
+  footer_bar:
+    foreground: '#47392f'
+    background: '#dbc1a2'
 
   primary:
-    foreground: "#a58b77"
+    foreground: "#dbc1a2"
     background: "#47392f"
 
   normal:
     black: "#99806e"
-    red: "#dbc1a2"
+    red: "#c4a683"
     green: "#b6c698"
     yellow: "#f4c1ba"
-    blue: "#dbabc3"
-    magenta: "#a07275"
-    cyan: "#cca380"
-    white: "#705a4b"
+    blue: "#ea8ca4"
+    magenta: "#cca380"
+    cyan: "#f2c298"
+    white: "#e8d3ae"
 
   bright:
-    black: "#7c6757"
-    red: "#c4a683"
+    black: "#7c6858"
+    red: "#9e8263"
     green: "#8daf85"
     yellow: "#e29e9e"
-    blue: "#cc90cc"
-    magenta: "#8c6964"
-    cyan: "#bc926d"
-    white: "#eaca93"
+    blue: "#ce7d92"
+    magenta: "#bc926d"
+    cyan: "#e5b58b"
+    white: "#efcca0"
 
     indexed_colors:
       - { index: 16, color: '#514036"'}
-      - { index: 17, color: '#DC8A78' }
-
-  unfocused_hollow: true
+      - { index: 17, color: '#c3fbb6"' }
