@@ -67,5 +67,5 @@
         elif [ "${1#*.}" = "flv" ];then
                 ${TERM} ${MUSIC} "$1"
         else
-             ${TERM} vim "$1"
+             alacritty --config-file "/home/mako/.config/alacritty/vim.yml" -e vim "$1"
     fi
