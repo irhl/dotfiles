@@ -7,10 +7,6 @@ unset MOTD_SHOWN
 # nsxiv load palette
 [ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
 
-    while read _ _ _ line _ _ ;do
-            printf '%s\n' "$line"
-         done < "$HOME/notes"
-
 COL0='\[\033[1;30m\]'
 COL1='\[\033[1;31m\]'
 COL4='\[\033[1;34m\]'
@@ -20,17 +16,17 @@ if [ "$TERM" = xterm-256color ]; then
       export PS1="$COL0\D{%H:%M} $COL4\$USER $COL1"
     fi
 
-alias lc='grim -g "$(slurp -p)" \
--t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-'
+xset r rate 300 50
+alias so='ssu --'
 
 alias 0="$print '\033[2J\033[;r'"
 alias 1='FC_DEBUG=1024 &'
 alias 2='FC_DEBUG=2024 &'
 alias lv='fuser -fv /dev/snd/* /dev/dsp*'
 alias ls='ls -rt --color=auto'
+alias am="alsamixer -f $HOME/.amixerrc"
+
 alias mp4="mpv $@ --ytdl-format=18"
 alias nnn=-
 alias firefox='firefox --alsa'
 alias htop='htop -M'
-alias sway=/usr/bin/sway
-alias swayfx=/usr/local/bin/sway

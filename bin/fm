@@ -14,6 +14,6 @@ export NNN_OPENER=$HOME/.local/share/bin/milf
 export NNN_BMS="a:$HOME/;b:$HOME/.local/share/;0:/dev/null
 ;c:$HOME/.config/;d:$HOME/Downloads/;m:/mnt/;v:$HOME/.vim/"
 export NNN_PLUG='1:wallpaper;2:nmount \
-;y:-!echo $PWD/$nnn|wl-copy*;a:imgview;'
+;y:-!echo $PWD/$nnn|xclip -sel c*;a:imgview;'
 
 /usr/bin/nnn -C "$@"

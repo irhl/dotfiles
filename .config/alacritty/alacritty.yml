@@ -1,0 +1,85 @@
+env:
+    TERM: xterm-256color
+
+window:
+  dynamic_padding: true
+  dynamic_title: true
+  resize_increments: true
+
+  decorations: none
+  opacity: 1.0
+
+  dimensions:
+    columns: 50
+    lines: 16
+
+  padding:
+    x: 14
+    y: 14
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+font:
+  normal:
+    family: cherry
+    style: Bold
+
+  size: 4.0
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+scrolling:
+  history: 250
+  multiplier: 3
+
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+
+  unfocused_hollow: true
+
+colors:
+  cursor:
+    text: "#f2e2c9"
+    cursor: "#897658"
+
+  selection:
+    text: "#e0c89a"
+    background: "#efd09b"
+
+  footer_bar:
+    foreground: '#f2e2c9'
+    background: '#897658'
+
+  primary:
+    foreground: "#897658"
+    background: "#f2e2c9"
+
+  normal:
+    black: "#897658"
+    red: "#bf9e78"
+    green: "#638e6b"
+    yellow: "#d37575"
+    blue: "#b3c6c9"
+    magenta: "#dbabc3"
+    cyan: "#b28a67"
+    white: "#ccb99b"
+
+  bright:
+    black: "#b29c79"
+    red: "#d6bd9e"
+    green: "#83af83"
+    yellow: "#e5afa7"
+    blue: "#c6d1b5"
+    magenta: "#efd09b"
+    cyan: "#e0c89a"
+    white: "#e0d4be"

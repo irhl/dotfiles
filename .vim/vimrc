@@ -1,18 +1,12 @@
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme flowershop
+colorscheme flowershopli
 
 packloadall
-" ap/vim-css-color                view css colors
-" dense-analysis/ale              preview syntax errors
 " tpope/vim-sensible              improve defaults
-" tpope/vim-endwise               automated statements
-" tpope/vim-surround              automated brackets
-" rstacruz/vim-closer             closes brackets
-" alvan/vim-closetag              closes html tags
+" ap/vim-css-color                view css colors
+" airblade/vim-gitgutter          view git diff
 " mg979/vim-visual-multi          multiple cursors
-" junegunn/goyo.vim               window padding
-" wfxr/minimap.vim                minimap view
 " vim-skk/eskk.vim                skk japanese text input
 
 nn vap v2ap
@@ -35,7 +29,7 @@ nn <C-C> :qa<cr>
 no ; :
 map q <Nop>
 ca mm source ~/.vim/vimrc <cr>
-ca mw w !wl-copy<cr>
+ca mw w !xclip -sel c<cr>
 ca ms mksession! ~/book/session.vim<cr>
 ca ma source ~/book/session.vim<cr>
 ca md r!date +\%c<cr>
@@ -68,7 +62,7 @@ set undofile
 set backup
 set writebackup
 set noswapfile
-set undodir=~/.vim/tmp/
+set undodir=~/.vim/tmp/undo/
 set backupdir=~/.vim/tmp/bak/
 set viminfo+=n~/.vim/viminfo
 
@@ -86,8 +80,10 @@ au bufwritepre *.[ch] %s/\%$/\r/e
 au bufwritepre * cal cursor(currPos[1], currPos[2])
 
 " on save conditions
-ca w!! w !doas tee % >/dev/null<cr>
+ca w!! w !ssu -- tee % >/dev/null<cr>
 au bufwritepost .Xresources,xresources !xrdb %
+au bufwritepost ~/.config/yambar/config.yml !sh -c killall yambar; yambar &
+
 au bufwritepre [:;]* throw 'Forbidden file name: ' . expand('<afile>')
 au bufwritepre * let &bex = '-' . strftime("%F-%H") . '.bak'
 
@@ -120,12 +116,12 @@ nn <silent> <F4> :call Paste()<cr>
 
 function! LineNr()
     if g:lines
-        :set nonumber
-        :echo printf('')
+        :set number
+        :echo printf('[*] number')
         let g:lines = 0
     else
-        :set number
-        :echo printf('')
+        :set nonumber
+        :echo printf('[x] number')
         let g:lines = 1
     endif
 endfunction
@@ -146,12 +142,13 @@ let g:lines = 0
 let g:goyo_width = 75
 let g:goyo_height = 50
 
-au vimresized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-au vimenter * :Goyo
-au vimleave * :Goyo!
+"au vimresized * if exists('#goyo') | exe "normal \<c-w>=" | endif
+"au vimenter * :Goyo
+"au vimleave * :Goyo!
 
 let g:minimap_width = 15
-let g:minimap_auto_start = 0
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 
 set showtabline=0
 au bufread,bufnewfile * set ruler
