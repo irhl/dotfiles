@@ -14,27 +14,19 @@ window:
     lines: 16
 
   padding:
-    x: 14
-    y: 14
-
-  class:
-    instance: Alacritty
-    general: Alacritty
+    x: 34
+    y: 34
 
 font:
   normal:
     family: cherry
     style: Bold
 
-  size: 4.0
+  size: 11.0
 
   offset:
     x: 0
-    y: 0
-
-  glyph_offset:
-    x: 0
-    y: 0
+    y: 1
 
 scrolling:
   history: 250
