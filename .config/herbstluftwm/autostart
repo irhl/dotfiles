@@ -84,20 +84,26 @@ hc rule class~'(.*[Ff]irefox.*|.*[Ss]team)' floating=on
 
 hc rule class=Firefox tag=1
 
-# Themes
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
-hc attr theme.normal.color '#efdbb8'
-hc attr theme.active.color '#dae5c9'
+hc set frame_bg_normal_color '#897658'
+hc set frame_bg_active_color '#897658'
+
+hc attr theme.color '#ebdccd'
+# #f9d2cc
+# #f3def7
+# #dae5c9
+# #efdbb8
+#hc attr theme.active.color
 hc attr theme.urgent.color '#fff1db'
 
-hc attr theme.border_width 12
+hc attr theme.border_width 14
 hc attr theme.inner_width 2
-hc attr theme.inner_color '#897658'
-hc attr theme.outer_color '#897658'
+hc attr theme.inner_color '#47392f'
+hc attr theme.outer_color '#47392f'
 hc attr theme.outer_width 2
-hc attr theme.padding_left 0
+hc attr theme.padding_bottom 0
 
 hc set window_gap 50
 hc set frame_padding 0
@@ -105,9 +111,4 @@ hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
 
-#xsetroot -solid \#c7b18f
-xsetroot -bitmap /home/mako/Downloads/dashes.xbm -bg \#c7b18f -fg \#f2e2c9
-#xsetroot -bitmap /home/mako/Downloads/dashes.xbm -bg \#f2e2c9 -fg \#c4a683
-#xsetroot -bitmap /home/mako/Downloads/30.xbm -bg \#f2e2c9 -fg \#f9d2cc
-#xsetroot -bitmap /home/mako/Downloads/30.xbm -bg \#f2e2c9 -fg \#ced6ad
-#hsetroot -fill /home/mako/Downloads/wallhaven-9mqx68.jpg
+xsetroot -bitmap /home/mako/Downloads/dashes.xbm -bg \#806b5d -fg \#45372C

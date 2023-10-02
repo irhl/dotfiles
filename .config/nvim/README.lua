@@ -35,3 +35,6 @@
 --  ABILITIES (vimscript)
 --  jiangmiao/auto-pairs.git"
 --  mg979/vim-visual-multi"
+--
+--  THIRD PARTY
+--  IogaMaster/neocord

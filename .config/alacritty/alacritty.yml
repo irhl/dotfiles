@@ -19,17 +19,17 @@ window:
 
 font:
   normal:
-    family: cherry
-    style: Bold
+    family: "scientifica"
+    style: regular
 
-  size: 11.0
+  size: 10.5
 
   offset:
     x: 0
-    y: 1
+    y: 0
 
 scrolling:
-  history: 250
+  history: 2
   multiplier: 3
 
 cursor:
@@ -37,41 +37,41 @@ cursor:
     shape: Block
     blinking: Always
 
-  unfocused_hollow: true
+  unfocused_hollow: false
 
 colors:
   cursor:
-    text: "#f2e2c9"
-    cursor: "#897658"
+    text:       "#fbeedb"
+    cursor:     "#514036"
 
   selection:
-    text: "#e0c89a"
-    background: "#efd09b"
+    text:       "#fbeedb"
+    background: "#514036"
 
   footer_bar:
-    foreground: '#f2e2c9'
-    background: '#897658'
+    foreground: '#fbeedb'
+    background: '#514036'
 
   primary:
-    foreground: "#897658"
-    background: "#f2e2c9"
+    foreground: "#514036"
+    background: "#fbeedb"
 
   normal:
-    black: "#897658"
-    red: "#bf9e78"
-    green: "#638e6b"
-    yellow: "#d37575"
-    blue: "#b3c6c9"
-    magenta: "#dbabc3"
-    cyan: "#b28a67"
-    white: "#ccb99b"
+    black:      "#ebdccd"
+    red:        "#514036"
+    green:      "#514036"
+    blue:       "#B5A192"
+    yellow:     "#B5A192"
+    magenta:    "#514036"
+    cyan:       "#514036"
+    white:      "#514036"
 
   bright:
-    black: "#b29c79"
-    red: "#d6bd9e"
-    green: "#83af83"
-    yellow: "#e5afa7"
-    blue: "#c6d1b5"
-    magenta: "#efd09b"
-    cyan: "#e0c89a"
-    white: "#e0d4be"
+    black:      "#806b5d"
+    red:        "#806b5d"
+    green:      "#806b5d"
+    blue:       "#806b5d"
+    yellow:     "#806b5d"
+    magenta:    "#806b5d"
+    cyan:       "#806b5d"
+    white:      "#806b5d"

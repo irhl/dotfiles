@@ -1,6 +1,6 @@
-Nsxiv.bar.font: Undefined-Medium:size=9:weight=bold
-Nsxiv.bar.background: #fff1db
-Nsxiv.bar.foreground: #897658
+Nsxiv.bar.font: CozetteVector:size=10:weight=bold
+Nsxiv.bar.foreground: #EBDCCD
+Nsxiv.bar.background: #B5A192
 Nsxiv.mark.foreground: #cca380
-Nsxiv.window.foreground: #f2e2c9
-Nsxiv.window.background: #f2e2c9
+Nsxiv.window.foreground: #fbeedb
+Nsxiv.window.background: #fbeedb
