@@ -1,12 +1,16 @@
 --  📝 vim configuration by ~ github.com/irhl
 --
 --
---         TODO 09-27-2023
+--         TODO 10-02-2023
 --
 --  [✓]  move from vim to nvim
 --  [✓]  do configuration in lua
 --  [✓]  install plugins without a plugin manager
---  [x]  themes in lua (colorscheme dir)
+--  [✓]  themes in lua (colorscheme dir)
+--  [x]  customize tabline
+
+--  Theme: flowershop (monochrome)
+--  ~/.config/nvim/lua/themes/flowershop.lua
 --
 --  Plugins are stored in:
 --  ~/.config/nvim/pack/plugins/start
@@ -32,9 +36,9 @@
 --  echasnovski/mini.starter"
 --  echasnovski/mini.statusline"
 --
+--  THIRD PARTY
+--  IogaMaster/neocord
+--
 --  ABILITIES (vimscript)
 --  jiangmiao/auto-pairs.git"
 --  mg979/vim-visual-multi"
---
---  THIRD PARTY
---  IogaMaster/neocord

@@ -1,6 +1,7 @@
 require 'plugins.mini';
 require 'plugins.misc';
 require 'plugins.treesitter';
+require 'themes.flowershop';
 
 -- load plugins
 vim.cmd('packloadall')
