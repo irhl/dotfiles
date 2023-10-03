@@ -6,6 +6,8 @@ color ctl_nomute red black normal
 color ctl_label_focus yellow black normal
 color ctl_label red black normal
 
+color ctl_mark_focus default default normal
+
 color menu red black normal
 color menu_selected black red normal
 

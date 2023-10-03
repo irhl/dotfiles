@@ -1,11 +1,11 @@
 local mp = require 'mp'
 
 -- User Defaults
-mp.add_forced_key_binding("right",     function() mp.command("seek 5") end)
-mp.add_forced_key_binding("left",      function() mp.command("seek -5") end)
+mp.add_forced_key_binding("right",     function() mp.command("seek 10") end)
+mp.add_forced_key_binding("left",      function() mp.command("seek -10") end)
 
-mp.add_forced_key_binding("0",         function() mp.command("add volume 2") end)
-mp.add_forced_key_binding("9",         function() mp.command("add volume -2") end)
+mp.add_forced_key_binding("0",         function() mp.command("add volume 15") end)
+mp.add_forced_key_binding("9",         function() mp.command("add volume -15") end)
 
 mp.add_forced_key_binding("space",     function() mp.command("cycle pause") end)
 mp.add_forced_key_binding("m",         function() mp.command("cycle mute") end)

@@ -1,32 +1,35 @@
 #!/bin/sh
 
-unset MAIL
-unset LANGUAGE
-unset MOTD_SHOWN
+unset                \
+  MAIL               \
+  LANGUAGE           \
+  MOTD_SHOWN         \
+  MOZ_PLUGIN_PATH
 
-# nsxiv load palette
-[ -f "$HOME/.Xresources" ] && xrdb -merge "$HOME/.Xresources"
+xset                 \
+  -dpms              \
+  s off              \
+  r rate 300 50
 
-COL0='\[\033[1;30m\]'
-COL1='\[\033[1;31m\]'
-COL4='\[\033[1;34m\]'
-print=printf
+xrdb                 \
+  -quiet             \
+  -query             \
+  -merge .Xresources
+
+alias                \
+  make='make CC=gcc' \
+  rg='rg -S'         \
+  df='df -h'         \
+  lv='fuser -fv /dev/snd/* /dev/dsp*'
+
+prompt() {
+    COL0='\[\033[1;30m\]'
+    COL1='\[\033[1;31m\]'
+    COL4='\[\033[1;34m\]'
+
+    PS1="$COL0\D{%H:%M} $COL4\$USER $COL1"
+}
 
 if [ "$TERM" = xterm-256color ]; then
-      export PS1="$COL0\D{%H:%M} $COL4\$USER $COL1"
-    fi
-
-xset r rate 300 50
-alias so='ssu --'
-
-alias 0="$print '\033[2J\033[;r'"
-alias 1='FC_DEBUG=1024 &'
-alias 2='FC_DEBUG=2024 &'
-alias lv='fuser -fv /dev/snd/* /dev/dsp*'
-alias ls='ls -rt --color=auto'
-alias am="alsamixer -f $HOME/.amixerrc"
-
-alias mp4="mpv $@ --ytdl-format=18"
-alias nnn=-
-alias firefox='firefox --alsa'
-alias htop='htop -M'
+    PROMPT_COMMAND=prompt
+fi
