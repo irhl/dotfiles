@@ -1,0 +1,36 @@
+colors:
+  cursor:
+    text:       "#fbeedb"
+    cursor:     "#514036"
+
+  selection:
+    text:       "#fbeedb"
+    background: "#514036"
+
+  footer_bar:
+    foreground: '#fbeedb'
+    background: '#514036'
+
+  primary:
+    foreground: "#514036"
+    background: "#fbeedb"
+
+  normal:
+    black:      "#ebdccd"
+    red:        "#776358"
+    green:      "#68584e"
+    blue:       "#B5A192"
+    yellow:     "#B5A192"
+    magenta:    "#514036"
+    cyan:       "#514036"
+    white:      "#514036"
+
+  bright:
+    black:      "#806b5d"
+    red:        "#806b5d"
+    green:      "#806b5d"
+    blue:       "#806b5d"
+    yellow:     "#806b5d"
+    magenta:    "#806b5d"
+    cyan:       "#806b5d"
+    white:      "#806b5d"

@@ -1,6 +1,6 @@
-Nsxiv.bar.font: CozetteVector:size=10:weight=bold
-Nsxiv.bar.foreground: #EBDCCD
-Nsxiv.bar.background: #B5A192
+Nsxiv.bar.font: Scientifica:size=13:weight=regular
+Nsxiv.bar.foreground: #b5a192
+Nsxiv.bar.background: #e2d3c3
 Nsxiv.mark.foreground: #cca380
 Nsxiv.window.foreground: #fbeedb
 Nsxiv.window.background: #fbeedb
