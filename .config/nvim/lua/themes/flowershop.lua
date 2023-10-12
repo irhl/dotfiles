@@ -1,4 +1,4 @@
--- Name:       flowershop (monochrome)
+-- Name:       flowershop-crush
 -- Version:    x.x
 -- Maintainer: github.com/irhl
 -- License:    The MIT License (MIT)
@@ -23,16 +23,19 @@
 vim.o.background = 'light'
 
 non = 'NONE'
-fg1 = '#47392f'
-fg2 = '#514036'
+fg1 = '#776358'
+fg2 = '#776358'
 
-bg4 = '#887468'
-bg3 = '#b5a192'
+bg5 = '#887468'
+bg4 = '#b5a192'
+bg3 = '#d3c7ba'
 bg2 = '#ebdccd'
 bg1 = '#fbeedb'
 
 co1 = '#c4a99b'
-co2 = '#c4a99b'
+co2 = '#c99d95'
+co3 = '#e5bab3'
+co4 = '#f9d2cc'
 
 local highlight = {
   -- * Common *
@@ -50,7 +53,7 @@ local highlight = {
   Identifier  = { fg = fg1, bg = non },
   Statement   = { fg = fg1, bg = non },
   SpecialKey  = { fg = fg1, bg = non },
-  Special     = { fg = bg4, bg = non },
+  Special     = { fg = bg5, bg = non },
   Repeat      = { fg = fg1, bg = non },
   Operator    = { fg = co2, bg = non },
   Number      = { fg = co1, bg = non },
@@ -60,8 +63,8 @@ local highlight = {
   Underlined  = { fg = fg1, bg = non },
 
   -- * Utility *
-  Comment     = { fg = bg4, bg = bg1 },
-  LineNR      = { fg = bg4, bg = bg1 },
+  Comment     = { fg = bg3, bg = bg1 },
+  LineNR      = { fg = bg3, bg = bg1 },
   SignColumn  = { fg = fg1, bg = non },
 
   Search      = { fg = bg2, bg = fg1 },
@@ -98,13 +101,13 @@ local highlight = {
   TelescopeBorder           = { fg = bg1, bg = bg1 },
   TelescopeSelection        = { fg = fg1, bg = non },
 
-  TelescopeResultsNormal    = { fg = bg3, bg = bg2 },
+  TelescopeResultsNormal    = { fg = bg4, bg = bg2 },
   TelescopeResultsTitle     = { fg = bg2, bg = bg2 },
   TelescopeResultsBorder    = { fg = bg2, bg = bg2 },
 
-  TelescopePromptNormal     = { fg = fg1, bg = bg4 },
-  TelescopePromptTitle      = { fg = bg4, bg = bg4 },
-  TelescopePromptBorder     = { fg = bg4, bg = bg4 },
+  TelescopePromptNormal     = { fg = fg1, bg = bg5 },
+  TelescopePromptTitle      = { fg = bg5, bg = bg5 },
+  TelescopePromptBorder     = { fg = bg5, bg = bg5 },
   TelescopePromptPrefix     = { fg = fg1, bg = fg1 },
 
   TelescopePreviewNormal    = { fg = bg1, bg = bg1 },
@@ -112,15 +115,15 @@ local highlight = {
   TelescopePreviewBorder    = { fg = bg1, bg = bg1 },
   TelescopePreviewMessage   = { fg = bg1, bg = bg1 },
 
-  MiniStatuslineFilename    = { fg = bg1, bg = bg1 },
-  MiniStatuslineFileinfo    = { fg = fg1, bg = bg2 },
+  MiniStatuslineFilename    = { fg = fg1, bg = bg2 },
+  MiniStatuslineFileinfo    = { fg = fg1, bg = bg4 },
   MiniStatuslineDevinfo     = { fg = bg1, bg = fg2 },
 
-  MiniStatuslineModeNormal  = { fg = bg1, bg = bg1 },
-  MiniStatuslineModeInsert  = { fg = bg1, bg = bg1 },
-  MiniStatuslineModeVisual  = { fg = bg1, bg = bg1 },
-  MiniStatuslineModeReplace = { fg = bg1, bg = bg1 },
-  MiniStatuslineModeCommand = { fg = bg1, bg = bg1 },
+  MiniStatuslineModeNormal  = { fg = bg1, bg = fg2 },
+  MiniStatuslineModeInsert  = { fg = bg1, bg = fg2 },
+  MiniStatuslineModeVisual  = { fg = bg1, bg = fg2 },
+  MiniStatuslineModeReplace = { fg = bg1, bg = fg2 },
+  MiniStatuslineModeCommand = { fg = bg1, bg = fg2 },
 
   -- * Links *
   IndentBlanklineChar               = { link = "LineNr"   },

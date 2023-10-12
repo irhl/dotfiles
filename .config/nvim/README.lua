@@ -9,7 +9,7 @@
 --  [✓]  themes in lua (colorscheme dir)
 --  [x]  customize tabline
 
---  Theme: flowershop (monochrome)
+--  Theme: flowershop-crush
 --  ~/.config/nvim/lua/themes/flowershop.lua
 --
 --  Plugins are stored in:

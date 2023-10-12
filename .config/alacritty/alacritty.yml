@@ -3,9 +3,6 @@ env:
 
 window:
   dynamic_padding: true
-  dynamic_title: true
-  resize_increments: true
-
   decorations: none
   opacity: 1.0
 
@@ -16,17 +13,6 @@ window:
   padding:
     x: 34
     y: 34
-
-font:
-  normal:
-    family: "scientifica"
-    style: regular
-
-  size: 10.5
-
-  offset:
-    x: 0
-    y: 0
 
 scrolling:
   history: 2
@@ -40,4 +26,4 @@ cursor:
   unfocused_hollow: false
 
 import:
- - ~/.config/alacritty/themes/flowershop.yml
+ - ~/.config/alacritty/themes/crush.yml

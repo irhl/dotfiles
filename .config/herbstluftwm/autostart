@@ -84,6 +84,7 @@ hc rule class~'(.*[Ff]irefox.*|.*[Ss]team)' floating=on
 
 hc rule class=Firefox tag=1
 
+# Themes
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
@@ -100,8 +101,8 @@ hc attr theme.urgent.color '#fff1db'
 
 hc attr theme.border_width 14
 hc attr theme.inner_width 2
-hc attr theme.inner_color '#47392f'
-hc attr theme.outer_color '#47392f'
+hc attr theme.inner_color '#776358'
+hc attr theme.outer_color '#776358'
 hc attr theme.outer_width 2
 hc attr theme.padding_bottom 0
 
@@ -111,4 +112,5 @@ hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
 
-xsetroot -bitmap /home/mako/Downloads/dashes.xbm -bg \#806b5d -fg \#45372C
+xsetroot -solid \#b5a192
+#xsetroot -bitmap /home/mako/Downloads/30.xbm -bg \#ebd6d2 -fg \#cec2ab
