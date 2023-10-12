@@ -113,4 +113,4 @@ hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
 
 xsetroot -solid \#b5a192
-#xsetroot -bitmap /home/mako/Downloads/30.xbm -bg \#ebd6d2 -fg \#cec2ab
+#xsetroot -bitmap "$HOME/.config/wallpapers/30.xbm" -bg \#ebd6d2 -fg \#cec2ab
