@@ -33,13 +33,20 @@ local key = {
     ["alt+left"] = "add video-pan-x 0.1",
     ["alt+right"] = "add video-pan-x -0.1",
     ["e"] = "cycle_values video-rotate 90 180 270 0",
-    ["r"] = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0"
+    ["r"] = "set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0",
 }
 
 local reply = function()
-  for key, command in pairs(key) do
-    mp.add_forced_key_binding(key, function() mp.command(command) end)
-  end
+    for key, command in pairs(key) do
+        local options = {}
+        if key == "left" or key == "right" then
+            options = { "repeatable" }
+        end
+
+        mp.add_forced_key_binding(key, function()
+            mp.command(command)
+        end, unpack(options))
+    end
 end
 
 return reply()
