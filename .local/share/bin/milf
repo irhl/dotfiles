@@ -1,55 +1,26 @@
 #!/bin/sh
 
-# milf - a mimeless file opener
-# for the nnn file manager.
+EXTRACT="7z x"
+BROWSER="firefox"
+TERM="alacritty -e"
+IMAGE="nsxiv -s F -z 25 -t -a"
+VIDEO="mpv"
+MUSIC="piko"
 
-EXTRACT='7z x'
-BROWSER=firefox
-TERM='alacritty -e'
-IMAGE='nsxiv -s F -z 25 -t -a'
-VIDEO=mpv
-MUSIC=piko
-
-if [ ! -f "$1" ];then
-        exit
-fi
-
-if [ "${1#*.}" = "html" ];then
-    ${BROWSER} "$1"
-    elif [ "${1#*.}" = "docx" ];then
-            ${BROWSER} "$1"
-    elif [ "${1#*.}" = "doc" ];then
-            ${BROWSER} "$1"
-    elif [ "${1#*.}" = "pdf" ];then
-            ${BROWSER} "$1"
-    elif [ "${1#*.}" = "png" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "jpe" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "jpg" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "jpeg" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "avif" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "webp" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "webm" ];then
-            ${VIDEO} "$1"
-    elif [ "${1#*.}" = "gifv" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "gif" ];then
-            ${IMAGE} "$1" "$PWD"
-    elif [ "${1#*.}" = "mp4" ];then
-            ${VIDEO} "$1"
-    elif [ "${1#*.}" = "mkv" ];then
-            ${VIDEO} "$1"
-    elif [ "${1#*.}" = "opus" ];then
-            ${TERM} ${MUSIC} "$1"
-    elif [ "${1#*.}" = "mp3" ];then
-            ${TERM} ${MUSIC} "$1"
-    elif [ "${1#*.}" = "flv" ];then
-            ${TERM} ${MUSIC} "$1"
-    else
-         ${TERM} vim "$1"
-fi
+case "${1##*.}" in
+    html | docx | doc | pdf)
+        $BROWSER "$1"
+        ;;
+    png | jpe | jpg | jpeg | avif | webp | gifv | gif)
+        $IMAGE "$1" "$PWD"
+        ;;
+    webm | mp4 | mkv)
+        $VIDEO "$1"
+        ;;
+    opus | mp3 | flv)
+        $TERM $MUSIC "$1"
+        ;;
+    *)
+        $TERM vim "$1"
+        ;;
+esac
