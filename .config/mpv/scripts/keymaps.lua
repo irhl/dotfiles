@@ -1,3 +1,5 @@
+local mp = require 'mp'
+
 local key = {
   q = "quit",
   z = "playlist-next",
