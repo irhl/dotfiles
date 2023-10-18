@@ -1,35 +1,10 @@
 #!/bin/sh
 
-unset                \
-  MAIL               \
-  LANGUAGE           \
-  MOTD_SHOWN         \
-  MOZ_PLUGIN_PATH
+PS1='-> '
 
-xset                 \
-  -dpms              \
-  s off              \
-  r rate 300 50
-
-xrdb                 \
-  -quiet             \
-  -query             \
-  -merge .Xresources
-
-alias                \
-  make='make CC=gcc' \
-  rg='rg -S'         \
-  df='df -h'         \
-  lv='fuser -fv /dev/snd/* /dev/dsp*'
-
-prompt() {
-    COL0='\[\033[1;30m\]'
-    COL1='\[\033[1;31m\]'
-    COL4='\[\033[1;34m\]'
-
-    PS1="$COL0\D{%H:%M} $COL4\$USER $COL1"
-}
-
-if [ "$TERM" = xterm-256color ]; then
-    PROMPT_COMMAND=prompt
-fi
+unset MAIL
+unset LANGUAGE
+unset LS_COLORS
+unset LC_COLLATE
+unset MOTD_SHOWN
+unset MOZ_PLUGIN_PATH
