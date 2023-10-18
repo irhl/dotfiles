@@ -15,4 +15,5 @@ g:$HOME/git"
 export NNN_PLUG='1:wallpaper;2:nmount \
 ;y:-!echo $PWD/$nnn|xclip -sel c*;a:imgview;'
 
+xrdb -merge .Xresources
 /usr/bin/nnn -C "$@"
