@@ -1,26 +1,28 @@
 #!/bin/sh
 
+DETACH="bb"
 EXTRACT="7z x"
 BROWSER="firefox"
-TERM="alacritty -e"
+TERM="footclient -e"
 IMAGE="nsxiv -s F -z 25 -t -a"
-VIDEO="mpv"
+VIDEO="mpvi"
 MUSIC="piko"
+
 
 case "${1##*.}" in
     html | docx | doc | pdf)
-        $BROWSER "$1"
+        $DETACH $BROWSER "$1"
         ;;
     png | jpe | jpg | jpeg | avif | webp | gifv | gif)
-        $IMAGE "$1" "$PWD"
+        $DETACH $IMAGE "$1" "$PWD"
         ;;
     webm | mp4 | mkv)
         $VIDEO "$1"
         ;;
     opus | mp3 | flv)
-        $TERM $MUSIC "$1"
+        $DETACH $TERM $MUSIC "$1"
         ;;
     *)
-        $TERM vim "$1"
+        $DETACH $TERM vim "$1"
         ;;
 esac
