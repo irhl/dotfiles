@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -t 0 ]; then
+if [ "$TERM" = linux ]; then
     export PS1='-> '
     export ENV="$HOME/.profile"
     export PATH="$HOME/.local/share/bin:$PATH"
