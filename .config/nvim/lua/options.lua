@@ -43,11 +43,11 @@ local reply = function()
   end
 end
 
--- disable ruler completely
-vim.api.nvim_create_autocmd(
-  { "BufRead, BufNewFile" },
-  { pattern = { "*" }, command = "set noruler",
-})
+-- -- disable ruler completely
+-- vim.api.nvim_create_autocmd(
+--   { "BufRead, BufNewFile" },
+--   { pattern = { "*" }, command = "set noruler",
+-- })
 
 -- trim trailing whitespaces
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
