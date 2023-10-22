@@ -10,7 +10,7 @@
 
         @func getenv
         vars [
-            HOME # printf '%s\n' "$HOME"
+            HOME
         ]
         errors false
     }

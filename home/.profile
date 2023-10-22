@@ -19,8 +19,6 @@ fi
 if [ ! -d "${XDG_RUNTIME_DIR}" ]; then
     mkdir "${XDG_RUNTIME_DIR}"
     chmod 0700 "${XDG_RUNTIME_DIR}"
-
-    amixer sset 'Master' 100% 2>/dev/null
 fi
 
 unset MAIL

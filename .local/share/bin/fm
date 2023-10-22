@@ -13,7 +13,8 @@ m:/mnt;\
 v:$HOME/.config/nvim;\
 g:$HOME/git"
 export NNN_PLUG='1:wallpaper;2:nmount \
-;y:-!echo $PWD/$nnn|xclip -sel c*;a:imgview;'
+;y:-!echo $PWD/$nnn|wl-copy*;a:imgview;'
 
+amixer sset 'Master' 100% > /dev/null 2>&1
 xrdb -merge .Xresources
 /usr/bin/nnn -C "$@"
