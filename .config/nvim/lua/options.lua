@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 -- load xresources on save
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = vim.env.HOME .. '/.Xresources',
+  pattern = vim.env.HOME .. '/.rc',
   command = '!xrdb %',
 })
 
