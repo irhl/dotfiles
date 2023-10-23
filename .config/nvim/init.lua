@@ -1,8 +1,6 @@
 require 'config';
 require 'plugins';
 
-print('hi ' .. os.getenv('USER') .. '!');
-
 --[[ PLUGINS INSTALLATION
 
   1. after you have cloned my nvim config,
