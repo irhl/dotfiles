@@ -1,7 +1,7 @@
 require 'plugins.mini';
 require 'plugins.misc';
 require 'plugins.treesitter';
-require 'themes.flowershop';
+require 'rocaoru';
 
 -- load plugins
 vim.cmd('packloadall')
@@ -20,39 +20,18 @@ vim.g.loaded_ruby_provider = 0
 
 -- disable built-in plugins (34)
 local builtins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  -- "matchparen",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "logipat",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
-  "archlinux",
-  "fzf",
-  "tutor_mode_plugin",
-  "sleuth",
-  "vimgrep"
+  "2html_plugin", "getscript",
+  "getscriptPlugin", "gzip", "logipat",
+  "netrw", "netrwPlugin",
+  "netrwSettings", "netrwFileHandlers",
+  "matchit", -- "matchparen",
+  "tar", "tarPlugin",
+  "rrhelper", "spellfile_plugin",
+  "vimball", "vimballPlugin",
+  "zip", "zipPlugin", "logipat", "tutor",
+  "rplugin", "syntax", "synmenu", "optwin",
+  "compiler", "bugreport", "ftplugin", "archlinux",
+  "fzf", "tutor_mode_plugin", "sleuth", "vimgrep"
 }
 
 local reply = function()
