@@ -44,7 +44,7 @@ local config = {
         {'n', 'ms', ":w !ssu -- tee % >/dev/null <cr>"},
         {'n', 'mm', function() vim.cmd.luafile('%') end },
     },
-    cmd = {
+    aucmd = {
         -- disable ruler completely
         {'BufRead', 'BufNewFile',
 	'*', 'set noruler'},
@@ -62,7 +62,6 @@ local config = {
         {"sidescrolloff", 8},
         {"showtabline", 0},
         {"laststatus", 0},
-
         {"timeoutlen", 250},
         {"updatetime", 500},
         {"lazyredraw", true},
@@ -98,21 +97,25 @@ local config = {
     }
 }
 
-for section, cmds in pairs(config) do
-    for _, v in ipairs(cmds) do
-        if section == 'key' then
-            vim.keymap.set(
-	    v[1], v[2], v[3],
-	    keymap_opts)
+local reply = function()
+    for section, command in pairs(config) do
+        for _, v in ipairs(command) do
+            if section == 'key' then
+                vim.keymap.set(
+                v[1], v[2], v[3],
+                keymap_opts)
 
-        elseif section == 'cmd' then
-            vim.cmd(
-	    string.format(
-	    'autocmd %s %s %s',
-	    v[1], v[2], v[3]))
+            elseif section == 'aucmd' then
+                vim.cmd(
+                string.format(
+                'autocmd %s %s %s',
+                v[1], v[2], v[3]))
 
-        elseif section == 'opt' then
-            vim.opt[v[1]] = v[2]
+            elseif section == 'opt' then
+                vim.opt[v[1]] = v[2]
+            end
         end
     end
 end
+
+return reply()
