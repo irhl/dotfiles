@@ -35,9 +35,9 @@ local builtins = {
 }
 
 local reply = function()
-    for _, plugin in ipairs(builtins) do
-      vim.g["loaded_" .. plugin] = 1
-    end
+  for _, plugin in ipairs(builtins) do
+    vim.g["loaded_" .. plugin] = 1
+  end
 end
 
 return reply()
