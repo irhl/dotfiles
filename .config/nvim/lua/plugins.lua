@@ -21,7 +21,7 @@ vim.g.loaded_ruby_provider = 0
 -- disable built-in plugins (34)
 local builtins = {
   "2html_plugin", "getscript",
-  "getscriptPlugin", "gzip", "logipat",
+  "getscriptPlugin", "gzip",
   "netrw", "netrwPlugin",
   "netrwSettings", "netrwFileHandlers",
   "matchit", -- "matchparen",
@@ -35,9 +35,9 @@ local builtins = {
 }
 
 local reply = function()
-  for _, plugin in ipairs(builtins) do
-    vim.g["loaded_" .. plugin] = 1
-  end
+    for _, plugin in ipairs(builtins) do
+      vim.g["loaded_" .. plugin] = 1
+    end
 end
 
 return reply()
