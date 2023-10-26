@@ -2,8 +2,8 @@ local mp = require 'mp'
 local home = os.getenv("HOME")
 
 local scripts = {
-    -- https://github.com/stax76/mpv-scripts
-    "/.config/mpv/scripts/common/history.lua"
+    -- mpv-player/mpv/tree/master/TOOLS/lua
+    "/.config/mpv/scripts/common/autoload.lua"
 }
 
 local reply = function()
