@@ -55,7 +55,7 @@ local config = {
 
 	-- write to nsxiv on save
         {'BufWritePost',
-	vim.env.HOME .. '/.nsxivrc', '!xrdb %'},
+	vim.env.HOME .. '/.config/nsxiv/exec/.Xresources', '!xrdb %'},
     },
     opt = {
         {"scrolloff", 8},
@@ -92,8 +92,7 @@ local config = {
 
         {"clipboard", "unnamedplus"},
         {"completeopt", { "menuone", "noselect" }},
-        {"undodir", string.format('%s/undodir',
-	vim.fn.stdpath('cache'))},
+        {"undodir", string.format('%s/undodir', vim.fn.stdpath('cache'))},
     }
 }
 

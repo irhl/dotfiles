@@ -15,6 +15,4 @@ g:$HOME/git"
 export NNN_PLUG='1:wallpaper;2:nmount \
 ;y:-!echo $PWD/$nnn|wl-copy*;a:imgview;'
 
-amixer sset 'Master' 100% > /dev/null 2>&1
-xrdb -merge .nsxivrc
 /usr/bin/nnn -C "$@"
