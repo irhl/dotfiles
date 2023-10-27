@@ -1,5 +1,6 @@
 require 'config';
 require 'plugins';
+require 'rocaoru';
 
 --[[ PLUGINS INSTALLATION
 
@@ -8,7 +9,7 @@ require 'plugins';
 
   2. there are a total of 12 plugins that need
      to be downloaded, do the command below
-     :luafile ~/.config/nvim/insp.lua
+     :luafile ~/.config/nvim/lua/repost.lua
 
   3. enjoy while it lasts ;)
 

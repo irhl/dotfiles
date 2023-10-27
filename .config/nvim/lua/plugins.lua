@@ -1,40 +1,39 @@
-require 'plugins.mini';
-require 'plugins.misc';
-require 'plugins.treesitter';
-require 'rocaoru';
+-- :help lua-loader
+vim.loader.enable()
 
 -- load plugins
 vim.cmd('packloadall')
 
--- :help lua-loader
-vim.loader.enable()
-
--- disable nvim intro
-vim.opt.shortmess:append "sI"
-
--- disable remote providers
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
+-- load plugin config
+local dir = '/home/irhl/.config/nvim/lua/plugins/'
+local read = vim.fn.readdir(dir)
 
 -- disable built-in plugins (34)
 local builtins = {
-  "2html_plugin", "getscript",
-  "getscriptPlugin", "gzip",
-  "netrw", "netrwPlugin",
+  "2html_plugin", "archlinux",
+  "bugreport", "compiler",
+  "ftplugin", "fzf",
+  "sleuth", "syntax", "synmenu",
+  "spellfile",  "spellfile_plugin",
+  "optwin", "matchit", -- "matchparen",
+  "rrhelper", "rplugin", "logipat",
+  "gtags", "getscript", "getscriptPlugin",
+  "man", "tutor", "tutor_mode_plugin",
+  "tar", "tarPlugin", "zip", "zipPlugin",
+  "gzip", "vimball", "vimballPlugin",
+  "vimgrep", "netrw", "netrwPlugin",
   "netrwSettings", "netrwFileHandlers",
-  "matchit", -- "matchparen",
-  "tar", "tarPlugin",
-  "rrhelper", "spellfile_plugin",
-  "vimball", "vimballPlugin",
-  "zip", "zipPlugin", "logipat", "tutor",
-  "rplugin", "syntax", "synmenu", "optwin",
-  "compiler", "bugreport", "ftplugin", "archlinux",
-  "fzf", "tutor_mode_plugin", "sleuth", "vimgrep"
+  "node_provider", "ruby_provider",
+  "python3_provider", "perl_provider",
 }
 
 local reply = function()
+  for _, plugin in ipairs(read) do
+    if plugin:match('%.lua$') then
+        pcall(dofile, dir .. plugin)
+    end
+  end
+
   for _, plugin in ipairs(builtins) do
     vim.g["loaded_" .. plugin] = 1
   end
