@@ -4,9 +4,7 @@ if [ "$TERM" = linux ]; then
     export PS1='-> '
     export ENV="$HOME/.profile"
     export PATH="$HOME/.local/share/bin:$PATH"
-    export PATH="$PATH:$HOME/.local/share/cargo/bin"
-    export CARGO_HOME="${XDG_DATA_HOME:="$HOME/.local/share"}/cargo"
-    export RUSTUP_HOME="${XDG_DATA_HOME:="$HOME/.local/share"}/rustup"
+    export PATH="$PATH:$HOME/.cargo/bin"
     export LESSHISTFILE=-
     export CFLAGS="-O3 -march=native -pipe"
     export CXXFLAGS="$CFLAGS"
@@ -29,7 +27,7 @@ unset MOTD_SHOWN
 unset MOZ_PLUGIN_PATH
 
 function wget { wget --no-hsts; }
-function make { make CC=gcc; }
+function make { make CC=clang; }
 function hwhl { ssu -- hwhl; }
 function fd { df -h; }
 function fv { fuser -fv /dev/snd/* /dev/dsp*; }
