@@ -22,15 +22,15 @@ local repost = {
     "mg979/vim-visual-multi",
 }
 
-function reply()
-  local dir = vim.fn.stdpath('config') .. '/pack/plugins/start'
-  vim.fn.mkdir(dir, 'p')
+local reply = function()
+    local dir = vim.fn.stdpath('config') .. '/pack/plugins/start2'
+    vim.fn.mkdir(dir, 'p')
 
-  for _, repo in ipairs(repost) do
-      local name = repo:match(".*/(.*)")
-      local download = string.format("git clone https://github.com/%s.git %s/%s", repo, dir, name)
-      os.execute(download)
-  end
+    for _, repo in ipairs(repost) do
+        local name = repo:match(".*/(.*)")
+        local download = string.format("git clone https://github.com/%s.git %s/%s", repo, dir, name)
+        os.execute(download)
+    end
 end
 
 return reply()

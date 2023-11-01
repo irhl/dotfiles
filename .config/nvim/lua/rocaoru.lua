@@ -106,9 +106,9 @@ local highlight = {
 }
 
 local reply = function()
-  for hl, col in pairs(highlight) do
-    vim.api.nvim_set_hl(0, hl, col)
-  end
+    for hl, col in pairs(highlight) do
+        vim.api.nvim_set_hl(0, hl, col)
+    end
 end
 
 return reply()

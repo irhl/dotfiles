@@ -5,7 +5,7 @@ vim.loader.enable()
 vim.cmd('packloadall')
 
 -- load plugin config
-local dir = '/home/irhl/.config/nvim/lua/plugins/'
+local dir = vim.fn.expand('$HOME') .. '/.config/nvim/lua/plugins/'
 local read = vim.fn.readdir(dir)
 
 -- disable built-in plugins (34)
@@ -28,15 +28,15 @@ local builtins = {
 }
 
 local reply = function()
-  for _, plugin in ipairs(read) do
-    if plugin:match('%.lua$') then
-        pcall(dofile, dir .. plugin)
+    for _, plugin in ipairs(read) do
+        if plugin:match('%.lua$') then
+            pcall(dofile, dir .. plugin)
+        end
     end
-  end
 
-  for _, plugin in ipairs(builtins) do
-    vim.g["loaded_" .. plugin] = 1
-  end
+    for _, plugin in ipairs(builtins) do
+        vim.g["loaded_" .. plugin] = 1
+    end
 end
 
 return reply()

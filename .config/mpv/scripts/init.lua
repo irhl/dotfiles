@@ -7,9 +7,9 @@ local scripts = {
 }
 
 local reply = function()
-  for _, script in pairs(scripts) do
-    mp.commandv("load-script", home .. script)
-  end
+    for _, script in pairs(scripts) do
+        mp.commandv("load-script", home .. script)
+    end
 end
 
 return reply()

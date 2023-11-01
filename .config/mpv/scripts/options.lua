@@ -32,9 +32,9 @@ local opts = {
 }
 
 local reply = function()
-  for opt, arg in pairs(opts) do
-    mp.set_property('options/' .. opt:gsub('_', '-'), arg)
-  end
+    for opt, arg in pairs(opts) do
+        mp.set_property('options/' .. opt:gsub('_', '-'), arg)
+    end
 end
 
 return reply ()
