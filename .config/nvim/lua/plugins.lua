@@ -8,7 +8,7 @@ vim.cmd('packloadall')
 local dir = vim.fn.expand('$HOME') .. '/.config/nvim/lua/plugins/'
 local read = vim.fn.readdir(dir)
 
--- disable built-in plugins (34)
+-- disable built-in plugins (38/39)
 local builtins = {
   "2html_plugin", "archlinux",
   "bugreport", "compiler",
