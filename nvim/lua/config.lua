@@ -97,14 +97,14 @@ local config = {
 }
 
 local reply = function()
-    for section, command in pairs(config) do
+    for section, scmd in pairs(config) do
         if section == 'key' then
             spargs = { noremap = true, silent = true }
         elseif section == 'unkey' then
             spargs = nil
         end
 
-        for _, v in ipairs(command) do
+        for _, v in ipairs(scmd) do
             if section == 'key' or section == 'unkey' then
                 vim.keymap.set(v[1], v[2], v[3], spargs)
             elseif section == 'autocmd' then
