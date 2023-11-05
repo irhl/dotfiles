@@ -11,12 +11,7 @@ if [ "$TERM" = linux ]; then
     export MAKEFLAGS=-j8
     export WLR_DRM_NO_MODIFIERS=1
     export WLR_DRM_DEVICES=/dev/dri/card0
-    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-fi
-
-if [ ! -d "${XDG_RUNTIME_DIR}" ]; then
-    mkdir "${XDG_RUNTIME_DIR}"
-    chmod 0700 "${XDG_RUNTIME_DIR}"
+    export XDG_RUNTIME_DIR="/tmp/1000"
 fi
 
 unset MAIL
@@ -35,3 +30,5 @@ function fv { fuser -fv /dev/snd/* /dev/dsp*; }
 function fc {
     grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
 }
+
+mkdir -p "${XDG_RUNTIME_DIR}"
