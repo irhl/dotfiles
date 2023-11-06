@@ -1,7 +1,6 @@
 #!/bin/sh
 
 if [ "$TERM" = linux ]; then
-    export PS1='-> '
     export ENV="$HOME/.profile"
     export PATH="$HOME/.local/share/bin:$PATH"
     export PATH="$PATH:$HOME/.cargo/bin"
@@ -16,6 +15,8 @@ if [ "$TERM" = linux ]; then
 
     mkdir -p "${XDG_RUNTIME_DIR}"
 fi
+
+export PS1='-> '
 
 unset MAIL
 unset LANGUAGE
