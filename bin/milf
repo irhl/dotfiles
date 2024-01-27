@@ -3,9 +3,9 @@
 EXTRACT="7z x"
 BROWSER="firefox"
 TERM="foot -e"
-IMAGE="nsxiv -s F -z 25 -t -a"
+IMAGE="mpv"
 VIDEO="mpv"
-MUSIC="piko"
+MUSIC="mpv --script=$HOME/.config/mpv/common/piko.lua "
 
 case "${1##*.}" in
     html | docx | doc | pdf)

@@ -1,7 +1,5 @@
-# x x :a
+#o:alsa
 
-# autoload config
-# <- ::
 @hooks [
     {
         @func getenv
@@ -17,20 +15,15 @@
     }
 ]
 
-# receive sound output
-# + **
 defaults.ctl.card 1
 defaults.pcm.card 1
 
 # playback alias
-# <- create
 pcm.plugj {
   type plug
   slave slavej
 }
 
-# playback alias
-# -> apply
 pcm_slave.slavej {
   pcm "hw:1,0"
   channels 2
@@ -41,14 +34,11 @@ pcm_slave.slavej {
 }
 
 # change sampling rate
-# <- create
 pcm.!default {
       type plug
       slave.pcm "dmix"
 }
 
-# change sampling rate
-# -> apply
 pcm.!default {
   type dmix
   ipc_key 1024
@@ -66,14 +56,11 @@ pcm.!default {
 }
 
 # volume boost
-# <- create
 pcm.!default {
     type plug
     slave.pcm "softvol"
 }
 
-# volume boost
-# -> apply
 pcm.softvol {
     type softvol
     slave {

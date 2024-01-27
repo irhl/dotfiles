@@ -1,4 +1,4 @@
-local repost = {
+local download = {
     -- EDITOR ENLIGHTENMENT
     "nvim-treesitter/nvim-treesitter",
     "neovim/nvim-lspconfig",
@@ -23,10 +23,10 @@ local repost = {
 }
 
 local reply = function()
-    local dir = vim.fn.stdpath('config') .. '/pack/plugins/start'
+    local dir = vim.fn.stdpath('config') .. '/pack/plugins/start2'
     vim.fn.mkdir(dir, 'p')
 
-    for _, repo in ipairs(repost) do
+    for _, repo in ipairs(download) do
         local name = repo:match(".*/(.*)")
         local download = string.format("git clone https://github.com/%s.git %s/%s", repo, dir, name)
         os.execute(download)

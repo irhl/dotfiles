@@ -6,9 +6,9 @@ if [ "$TERM" = linux ]; then
     export PATH="$PATH:$HOME/.cargo/bin"
     export CFLAGS="-O3 -march=native -pipe"
     export CXXFLAGS="$CFLAGS"
-    export MAKEFLAGS=-j8
-    export LANG=en_US.UTF-8
     export LESSHISTFILE=-
+    export LANG=en_US.UTF-8
+    export MAKEFLAGS=-j8
     export WLR_DRM_NO_MODIFIERS=1
     export WLR_DRM_DEVICES=/dev/dri/card0
     export XDG_RUNTIME_DIR="/tmp/1000"
@@ -18,21 +18,16 @@ fi
 
 export PS1='-> '
 
-unset MAIL
-unset LANGUAGE
-unset LS_COLORS
-unset LC_COLLATE
-unset MOTD_SHOWN
-unset MOZ_PLUGIN_PATH
+make() { make CC=gcc; }
+wget() { wget --no-hsts; }
 
-function fd { df -h; }
-function fu { ls -l /dev/disk/by-uuid/; }
-function fv { fuser -fv /dev/snd/* /dev/dsp*; }
+s1()   { curl -F "file=@$1" 'https://x0.at'; }
+s2()   { grim -g "$(slurp -p)" -t ppm - |
+convert - -format '%[pixel:p{0,0}]' txt:-; }
 
-function hwhl { ssu -- hwhl; }
-function make { make CC=clang; }
-function wget { wget --no-hsts; }
-function x0 { curl -F "file=@$1" 'https://x0.at'; }
-function cv { grim -g "$(slurp -p)" -t ppm - |
-    convert - -format '%[pixel:p{0,0}]' txt:-
-}
+1() { df -h; }
+2() { df -h | grep 'nvme'; }
+3() { ls -l /dev/disk/by-uuid/; }
+4() { lsusb; }
+
+amixer sset 'Master' 88% > /dev/null 2>&1
