@@ -1,0 +1,63 @@
+set $mod Mod4
+set $alt Mod1
+
+output * bg #1d1c1b solid_color
+output * adaptive_sync on
+output DP-1 mode --custom 1920x1080@120.00Hz position 0,0
+
+# Philips Consumer Electronics Company
+# Name: PHL24M1N3200Z
+# Mode: User Define
+#
+# R: 100
+# G:  95
+# B:  92
+#
+# Brightness: 65
+# Contrast:   50
+# Sharpness:  50
+# Gamma:      2.2
+
+gaps left 172
+gaps right 388
+gaps top 158
+gaps bottom 98
+
+default_border pixel 0
+floating_modifier $mod normal
+for_window [app_id=".*"] floating enable, titlebar hide
+
+# change input speed
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 50
+}
+
+# reduce acceleration
+input "type:pointer" {
+	accel_profile "flat"
+	pointer_accel "0"
+}
+
+bindsym $mod+z exec foot -e bash --rcfile $ENV
+bindsym $mod+s exec grim -g "0,0 1920x1080" \
+-- $HOME/$(date +%F-%H-%M-%S).jpg
+
+bindsym $mod+n exec firefox
+bindsym $mod+b exec chromium
+bindsym $mod+v exec steam
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+q exit
+bindsym $mod+c kill
+bindsym $mod+a fullscreen
+bindsym $mod+f floating toggle
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
