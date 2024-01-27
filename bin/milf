@@ -5,7 +5,7 @@ BROWSER="firefox"
 TERM="foot -e"
 IMAGE="mpv"
 VIDEO="mpv"
-MUSIC="mpv --script=$HOME/.config/mpv/common/piko.lua "
+MUSIC="mpv --script=$HOME/.config/mpv/common/piko.lua"
 
 case "${1##*.}" in
     html | docx | doc | pdf)
