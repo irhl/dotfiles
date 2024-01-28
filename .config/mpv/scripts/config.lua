@@ -10,7 +10,10 @@ end
 
 for key, action in pairs(ranch.keymaps) do
     local ranch = {}
-    if key == "left" or key == "right" then
+    if key == "left" or key == "right"
+	    or key == "z" or key == "Z"
+	    or key == "x" or key == "X"
+	    then
         ranch = { "repeatable" }
     end
 
