@@ -17,4 +17,4 @@ while [ "$i" != 8 ]; do
     i=$((i + 1))
 done
 
-printf "\033[0m\n"
+printf '\033[0m\n'
