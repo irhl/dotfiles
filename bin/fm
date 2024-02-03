@@ -1,0 +1,19 @@
+#!/bin/sh
+
+export SHELL=/usr/local/bin/hilbish
+export NNN_USE_EDITOR=0
+export NNN_COLORS=2683
+export NNN_FCOLORS=c1e20b02006005f7c6d6abc4
+export NNN_OPENER="$HOME/.local/share/bin/milf"
+export NNN_BMS="\
+a:$HOME;\
+b:$HOME/.local/share;\
+c:$HOME/.config;\
+d:$HOME/Downloads;\
+m:/mnt;\
+v:$HOME/.config/nvim;\
+g:$HOME/git"
+export NNN_PLUG='1:wallpaper;2:nmount \
+;y:-!echo $PWD/$nnn|wl-copy*;a:imgview;'
+
+/usr/bin/nnn -C "$@"
