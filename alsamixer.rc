@@ -1,0 +1,12 @@
+color ctl_bar_hi white black normal
+color ctl_bar_mi white black normal
+color ctl_bar_lo white black normal
+color ctl_nomute black red normal
+
+color ctl_label_focus white black normal
+color ctl_label black white normal
+color ctl_mark_focus default default normal
+color mixer_active white default normal
+
+color menu white black normal
+color menu_selected black white normal
