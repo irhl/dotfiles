@@ -23,7 +23,7 @@ local download = {
 }
 
 local reply = function()
-    local dir = vim.fn.stdpath('config') .. '/pack/plugins/start2'
+    local dir = vim.fn.stdpath('config') .. '/pack/plugins/start'
     vim.fn.mkdir(dir, 'p')
 
     for _, repo in ipairs(download) do
