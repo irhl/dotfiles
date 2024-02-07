@@ -18,7 +18,7 @@ M.keymaps = {
         -- search & replace
         {{'v', 'n'}, '<C-f>', ':%s/'},
         -- japanese input eskk
-        {'n', '<C-m>', ":lua kana()<cr>"},
+        {'n', '<C-i>', ":lua kana()<cr>"},
         -- buffer manipulation
         {'n', '<C-z>', vim.cmd.bprev},
         {'n', '<C-a>', vim.cmd.bnext},
