@@ -1,1 +1,1 @@
-![img](https://github.com/irhl/dotfiles/assets/58134273/984f74f6-9cac-43b6-b56a-cfb7199638eb)
+![img](https://github.com/irhl/dotfiles/assets/58134273/4acdac12-64f4-4ca4-803a-718c8292a443)
