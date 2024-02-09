@@ -25,8 +25,6 @@ M.keymaps = {
         -- file manipulation
         {'n', '<C-c>', vim.cmd.exit},
         {'n', '<C-s>', vim.cmd.write},
-        {'n', 'ms', ":w !ssu -- tee % >/dev/null <cr>"},
-        {'n', 'mc', ":!ssu -- make install <cr>"},
     },
 }
 
