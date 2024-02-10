@@ -21,6 +21,7 @@ input type:keyboard {
     repeat_delay 200
     repeat_rate 50
 }
+
 input "type:pointer" {
 	accel_profile "flat"
 	pointer_accel "0"
