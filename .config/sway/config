@@ -1,11 +1,7 @@
 # Philips Consumer Electronics Company
 # Name: PHL24M1N3200Z
 # Mode: User Define
-#
-# R: 100
-# G:  95
-# B:  92
-#
+# RGB: 100, 95, 92
 # Brightness: 65
 # Contrast:   50
 # Sharpness:  50
@@ -18,20 +14,17 @@ output DP-1 mode --custom 1920x1080@120.00Hz position 0,0
 seat seat0 xcursor_theme "macOS-Monterey-White"
 exec gsettings set org.gnome.desktop.interface cursor-theme "macOS-Monterey-White"
 
-# change input speed
+set $mod Mod4
+set $alt Mod1
+
 input type:keyboard {
     repeat_delay 200
     repeat_rate 50
 }
-
-# reduce acceleration
 input "type:pointer" {
 	accel_profile "flat"
 	pointer_accel "0"
 }
-
-set $mod Mod4
-set $alt Mod1
 
 gaps left 172
 gaps right 388
@@ -39,7 +32,6 @@ gaps top 158
 gaps bottom 98
 default_border pixel 0
 hide_edge_borders both
-
 floating_modifier $mod normal
 for_window [app_id=".*"] floating enable, titlebar hide
 for_window [app_id=foot] max_render_time 1
@@ -53,7 +45,8 @@ bindsym $mod+u exec "$HOME/.local/share/Steam/steamapps/common/Aseprite/aseprite
 bindsym $mod+n exec firefox
 bindsym $mod+b exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
 bindsym $mod+v exec steam
-
+bindsym $mod+e exec swaymsg resize set 350px 400px
+bindsym $mod+r exec swaymsg resize set 620px 750px
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+q exit
 bindsym $mod+c kill
@@ -67,5 +60,3 @@ bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+e exec swaymsg resize set 350px 400px
-bindsym $mod+r exec swaymsg resize set 620px 750px
