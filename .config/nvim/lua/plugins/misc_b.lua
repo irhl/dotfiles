@@ -1,3 +1,4 @@
+-- echasnovski/mini.statusline
 local statusline = require 'mini.statusline';
 
 local function group()
@@ -18,14 +19,15 @@ local function group()
 	})
 end
 
+-- echasnovski/mini.starter
+require 'mini.starter'.setup {
+	evaluate_single = true,
+}
+
 statusline.setup {
 	use_icons = false,
 	content = {
 		inactive = group,
 		active = group
 	}
-}
-
-require 'mini.starter'.setup {
-	evaluate_single = true,
 }

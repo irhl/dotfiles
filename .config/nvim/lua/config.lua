@@ -4,7 +4,7 @@ vim.loader.enable()
 -- load plugins
 vim.cmd('packloadall')
 
-vim.o.background = 'dark'
+vim.o.background = 'light'
 local theme = require('theme')
 
 local ranch = require('ranch')
@@ -15,7 +15,6 @@ kana = function()
     vim.g.kana = not vim.g.kana
 end
 
--- file: ranch.lua
 for _, section in pairs{ranch.keymaps.silent, ranch.keymaps.normal} do
     for _, v in ipairs(section) do
         local arg = section == ranch.keymaps.silent
@@ -42,7 +41,6 @@ for _, plugin in ipairs(ranch.plugins.builtins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
--- file: theme.lua
 for hl, col in pairs(theme.highlight) do
     vim.api.nvim_set_hl(0, hl, col)
 end
@@ -63,8 +61,6 @@ end
       |      \___/ ~irhl |
       |------------------|
       +------------------+
-
-      <Description>
 
       An artwork I created, dated somewhere in 2023.
       It's a portrait for my old flowershop colorscheme.

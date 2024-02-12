@@ -40,7 +40,7 @@ M.options = {
     {"sidescrolloff", 8},
     {"timeoutlen", 250},
     {"updatetime", 500},
-    {"lazyredraw", true},
+    {"lazyredraw", false},
     {"ttyfast", true},
     {"backup", false},
     {"swapfile", false},
