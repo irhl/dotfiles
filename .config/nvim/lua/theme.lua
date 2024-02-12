@@ -48,12 +48,12 @@ M.highlight = {
   PmenuExtra      = { fg = '#888074', bg = 'NONE' },
   PmenuSel        = { fg = '#888074', bg = 'NONE' },
 
-  WhichKeyFloat   = { fg = '#888074', bg = '#fbeedb' },
-
-  MiniStatuslineModeNormal = { fg = '#fbeedb', bg = '#fbeedb' },
-  MiniStatuslineFilename   = { fg = '#fbeedb', bg = '#fbeedb' },
-  MiniStatuslineDevinfo    = { fg = '#fbeedb', bg = '#fbeedb' },
-  MiniStatuslineFileinfo   = { fg = '#888074', bg = '#fbeedb' },
+  DiagnosticSignInfo       = { fg = '#888074', bg = 'NONE' },
+  WhichKeyFloat            = { fg = '#888074', bg = 'NONE' },
+  MiniStatuslineModeNormal = { fg = '#fbeedb', bg = 'NONE' },
+  MiniStatuslineFilename   = { fg = '#fbeedb', bg = 'NONE' },
+  MiniStatuslineDevinfo    = { fg = '#fbeedb', bg = 'NONE' },
+  MiniStatuslineFileinfo   = { fg = '#888074', bg = 'NONE' },
 
   IndentBlanklineChar               = { link = "LineNr"   },
   IndentBlanklineSpaceChar          = { link = "LineNr"   },
