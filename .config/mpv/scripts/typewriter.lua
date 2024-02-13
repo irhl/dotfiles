@@ -8,7 +8,7 @@ function main()
   if file then
     local current = os.date("[%Y-%m-%d, %H:%M:%S]")
     local metadata = mp.get_property_native("metadata")
-	  file:write("\n" .. current .. "\n")
+    file:write("\n" .. current .. "\n")
 
         if metadata then
             for key, value in pairs(metadata) do
