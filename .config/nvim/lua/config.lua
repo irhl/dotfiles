@@ -6,9 +6,7 @@ vim.cmd('packloadall')
 
 vim.o.background = 'light'
 local theme = require('theme')
-
 local ranch = require('ranch')
-local builtin = require('telescope.builtin')
 
 kana = function()
     vim.cmd('set keymap=' .. (vim.g.kana and '' or 'kana'))

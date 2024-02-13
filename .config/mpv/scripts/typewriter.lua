@@ -5,11 +5,11 @@ local home = os.getenv("HOME")
 local output = home .. "/.config/mpv/typewriter.csv"
 
 function main()
-    local file = io.open(output, "a")
+  local file = io.open(output, "a")
 
-    if file then
-        local current = os.date("[%Y-%m-%d, %H:%M:%S]")
-        local metadata = mp.get_property_native("metadata")
+  if file then
+    local current = os.date("[%Y-%m-%d, %H:%M:%S]")
+    local metadata = mp.get_property_native("metadata")
 
 	file:write("\n" .. current .. "\n")
 
