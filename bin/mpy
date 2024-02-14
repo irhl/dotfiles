@@ -15,7 +15,7 @@ case $url in
         ;;
     1080p)
        yt-dlp "$@" \
-			 -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]/best' \
+       -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]/best' \
        --write-sub --sub-lang=en
         ;;
     *)
