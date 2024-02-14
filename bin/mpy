@@ -3,7 +3,7 @@
 read -r url
 case $url in
     mp3)
-			 yt-dlp "$@" \
+       yt-dlp "$@" \
        --extract-audio \
        --audio-format mp3 \
        --audio-quality 0 \
