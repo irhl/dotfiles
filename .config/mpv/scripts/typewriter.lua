@@ -1,6 +1,4 @@
 local mp = require('mp')
-local home = os.getenv('HOME')
-local output = home .. '/.config/mpv/typewriter.csv'
 
 function main()
     local output = os.getenv('HOME') .. '/.config/mpv/typewriter.csv'
