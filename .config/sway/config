@@ -7,7 +7,7 @@
 # Sharpness:  50
 # Gamma:      2.2
 
-output * bg #c1b5aa solid_color
+output * bg /home/irhl/.config/wallpaper.png fill
 output * adaptive_sync on
 output DP-1 mode --custom 1920x1080@120.00Hz position 0,0
 
