@@ -38,7 +38,7 @@ M.keymaps = {
 M.options = {
   volume = '50',
   volume_max = '100',
-  ao = 'alsa',
+  -- ao = 'alsa',
   --audio_device = 'alsa/plug:dmix',
   -- af = 'superequalizer=2b=3:3b=1:4b=2',
 
