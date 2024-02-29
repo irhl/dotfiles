@@ -59,8 +59,8 @@ M.options = {
   ontop = 'yes',
   window_dragging = 'yes',
 
-  scale = 'ewa_lanczos4sharpest',
-  cscale = 'ewa_lanczos4sharpest',
+  scale = 'ewa_lanczos',
+  cscale = 'ewa_lanczos',
   dscale = 'lanczos',
   dither_depth = 'auto',
   correct_downscaling = 'yes',
