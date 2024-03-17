@@ -1,26 +1,31 @@
 #!/bin/sh
+# to extract files, open them manually with the 'o' key
+# and type milf then hit enter
+#
+# by default, nnn uses unzip for zip files, they may use others 
+# with unrar while 7z alone supports many file extensions
 
-EXTRACT="7z x"
-BROWSER="firefox"
 TERM="foot -e"
 IMAGE="mpv"
 VIDEO="mpv"
 MUSIC="mpv --script=$HOME/.config/mpv/script-opts/piko.lua"
 
 case "${1##*.}" in
+    zip | rar | tar.gz | tar.xz)
+        mkdir -p "${1%.*}" && 7z x "$1" -o"${1%.*}" ;;
+
     html | docx | doc | pdf)
-        $BROWSER "$1"
-        ;;
-    png | jpe | jpg | jpeg | avif | webp | gifv | gif)
-        $IMAGE "$1" "$PWD"
-        ;;
-    webm | mp4 | mkv)
-        $VIDEO "$1"
-        ;;
+        $BROWSER "$1" ;;
+
+    png | jpe | jpg | jpeg | jfif | avif | webp | gifv | gif)
+        $IMAGE "$1" "$PWD" ;;
+
+    webm | mkv | mp4)
+        $VIDEO "$1" ;;
+
     opus | mp3 | flv)
-        $TERM $MUSIC "$1"
-        ;;
+        $TERM $MUSIC "$1" "$PWD" ;;
+
     *)
-        $TERM vim "$1"
-        ;;
+        $TERM $EDITOR "$1" ;;
 esac

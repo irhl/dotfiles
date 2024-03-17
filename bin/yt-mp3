@@ -1,9 +1,6 @@
 #!/bin/sh
 
-read -r url
-case $url in
-    mp3)
-       yt-dlp "$@" \
+yt-dlp "$@" \
        --extract-audio \
        --audio-format mp3 \
        --audio-quality 0 \
@@ -12,13 +9,3 @@ case $url in
        --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg \
        -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\"" \
        -o "/tmp/%(title)s.%(ext)s"
-        ;;
-    1080p)
-       yt-dlp "$@" \
-       -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]/best' \
-       --write-sub --sub-lang=en
-        ;;
-    *)
-        printf '%s\n' "x"
-        ;;
-esac
