@@ -25,10 +25,10 @@ _G.gitPull = function()
     local url_raw = 'https://raw.githubusercontent.com/'
 
     local dir = vim.fn.stdpath('config') .. '/pack/plugins/start'
-    local kana = dir .. '/kana'
+    local skk = dir .. '/skk'
 
     vim.fn.mkdir(dir,  'p')
-    vim.fn.mkdir(kana, 'p')
+    vim.fn.mkdir(skk, 'p')
 
     local reply = {}
     for _, repo in ipairs(receive_full) do
@@ -41,7 +41,7 @@ _G.gitPull = function()
     end
     for _, repo in ipairs(receive_raw) do
         local a = repo:match('.*/(.*)')
-        local b = kana .. '/' .. a
+        local b = skk .. '/' .. a
 
         if vim.fn.filereadable(b) == 0 then
             table.insert(reply, 'curl -o ' .. b .. ' ' .. url_raw .. repo)
