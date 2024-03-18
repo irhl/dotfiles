@@ -146,4 +146,26 @@ M.theme = {
     "@ibl.whitespace.char.1", "#ece2d9", "NONE", 
 }
 
+M.receive_full = {
+    -- EDITOR ENLIGHTENMENT
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-telescope/telescope.nvim',
+    'nvim-lua/plenary.nvim',
+    'echasnovski/mini.starter',
+
+    -- EDITOR ENCHANCEMENT
+    'mg979/vim-visual-multi',
+
+    -- SYNTAX HIGHLIGHTING
+    'lewis6991/gitsigns.nvim',
+    'brenoprata10/nvim-highlight-colors',
+    'lukas-reineke/indent-blankline.nvim'
+}
+
+M.receive_raw = {
+    -- EDITOR MULTILINGUAL
+    'neovim/neovim/master/runtime/keymap/kana.vim',
+    'skk-dev/dict/master/SKK-JISYO.L'
+}
+
 return M

@@ -16,6 +16,37 @@ for i = 1, #config.theme, 3 do
     vim.api.nvim_set_hl(0, hl, { fg = fg, bg = bg })
 end
 
+_G.gitPull = function()
+    local url_full = 'https://github.com/'
+    local url_raw = 'https://raw.githubusercontent.com/'
+
+    local dir = vim.fn.stdpath('config') .. '/pack/plugins/start'
+    local skk = dir .. '/skk'
+
+    vim.fn.mkdir(dir,  'p')
+    vim.fn.mkdir(skk, 'p')
+
+    local reply = {}
+    for _, repo in ipairs(config.receive_full) do
+        local a = repo:match('.*/(.*)')
+        local b = dir .. '/' .. a
+        if vim.fn.isdirectory(b) == 0 then
+            table.insert(reply, 'git clone ' .. url_full .. repo .. '.git ' .. b)
+        end
+    end
+    for _, repo in ipairs(config.receive_raw) do
+        local a = repo:match('.*/(.*)')
+        local b = skk .. '/' .. a
+        if vim.fn.filereadable(b) == 0 then
+            table.insert(reply, 'curl -o ' .. b .. ' ' .. url_raw .. repo)
+        end
+    end
+    os.execute(table.concat(reply, ' && '))
+
+    io.write("\27[31m", "download complete!", "\27[0m")
+    io.flush()
+end
+
 -- display statusline
 vim.cmd [[
   hi left  guifg=#716b67 guibg=#f5e1de gui=bold
@@ -26,5 +57,4 @@ local function statusline()
   vim.o.statusline = '%#left# %f %m %=' ..
                      '%#right# Ln %l, Col %c '
 end
-
 statusline()
