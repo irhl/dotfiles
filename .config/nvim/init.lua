@@ -1,3 +1,9 @@
+--[[ README:
+
+     to get started, download the plugins with the command below
+     :lua gitPull()
+]]
+
 -- disable builtin plugins and providers
 local disable_builtin_plugins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper", "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin", "syntax", "synmenu", "optwin", "compiler", "bugreport", "ftplugin"}
 local disable_builtin_providers = {"node", "perl", "ruby"}
@@ -12,7 +18,6 @@ end
 vim.loader.enable()
 
 -- load plugins (they are stored at ~/.config/nvim/pack/start/plugins)
--- to download them, do :lua gitPull
 vim.cmd('packloadall')
 vim.o.background = 'light'
 
@@ -24,11 +29,14 @@ for _, plugin in ipairs(read) do
     end
 end
 
--- in case if errors persist and some files are unable to load
-vim.opt.clipboard:append('unnamedplus')
-vim.opt.undodir = vim.fn.expand('~/.cache/nvim/undodir')
-vim.opt.undofile = true
-vim.o.swapfile = false
+-- display statusline
+vim.cmd [[
+  hi left  guifg=#716b67 guibg=#f5e1de gui=bold
+  hi right guifg=#716b67 guibg=#f5e1de gui=bold
+]]
 
--- no idea what this does, but i'd say it is beneficial to have it
-vim.g.vimwiki_global_ext = 0
+local function statusline()
+  vim.o.statusline = '%#left# %f %m %=' ..
+                     '%#right# Ln %l, Col %c '
+end
+statusline()

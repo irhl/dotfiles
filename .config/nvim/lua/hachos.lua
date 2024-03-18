@@ -22,7 +22,6 @@ _G.gitPull = function()
 
     local dir = vim.fn.stdpath('config') .. '/pack/plugins/start'
     local skk = dir .. '/skk'
-
     vim.fn.mkdir(dir,  'p')
     vim.fn.mkdir(skk, 'p')
 
@@ -46,15 +45,3 @@ _G.gitPull = function()
     io.write("\27[31m", "download complete!", "\27[0m")
     io.flush()
 end
-
--- display statusline
-vim.cmd [[
-  hi left  guifg=#716b67 guibg=#f5e1de gui=bold
-  hi right guifg=#716b67 guibg=#f5e1de gui=bold
-]]
-
-local function statusline()
-  vim.o.statusline = '%#left# %f %m %=' ..
-                     '%#right# Ln %l, Col %c '
-end
-statusline()
