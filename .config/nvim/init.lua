@@ -2,7 +2,7 @@
 
      to get started, download the plugins with the command below
      :lua gitPull()
-]]
+--]]
 
 -- disable builtin plugins and providers
 local disable_builtin_plugins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin", "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper", "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin", "syntax", "synmenu", "optwin", "compiler", "bugreport", "ftplugin"}
