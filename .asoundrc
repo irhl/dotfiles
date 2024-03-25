@@ -2,14 +2,14 @@
 
 @hooks [
     {
-        @func getenv
-        vars [
-            rate_value 44100
-        ]
-
         func load
         files [
             "$HOME/.asoundrc"
+        ]
+
+        @func getenv
+        vars [
+            rate_value 44100
         ]
         errors false
     }

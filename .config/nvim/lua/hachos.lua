@@ -16,7 +16,7 @@ for i = 1, #config.theme, 3 do
     vim.api.nvim_set_hl(0, hl, { fg = fg, bg = bg })
 end
 
-_G.gitPull = function()
+_G.git = function()
     local url_full = 'https://github.com/'
     local url_raw = 'https://raw.githubusercontent.com/'
 

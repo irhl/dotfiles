@@ -1,5 +1,6 @@
 -- if telescope plugin load fails, return an empty table
 -- this should still load the file even if plugin errors occur
+-- READ: ap.lua for plugin setup
 local telescope
 local success, plugin = pcall(require, 'telescope.builtin')
 
@@ -9,6 +10,23 @@ telescope = success and plugin or setmetatable({}, {
     end
 })
 
+-- press <C-i>, press it again to revert back to normal input
+-- READ: ap.lua for plugin setup
+local function input_jp()
+    vim.cmd(("set keymap=" .. ((vim.g.kana and "") or "kana")))
+    vim.g.kana = not vim.g.kana
+end
+
+-- BEFORE THE YEAR IS OUT, WE'LL BE HARVESTING MANGOES IN TAHITI!
+-- TAHITI ARFUR! TAHITI!
+local function current_date()
+    local date_format = os.date("%d-%m-%Y")
+    vim.api.nvim_put({date_format}, "", true, true)
+end
+
+-- NOTE: the contents of this code might look weird when
+-- viewing on github, column duplication or such
+-- READ: hachos.lua for finalizing tables
 local M = {}
 
 M.keymaps = {
@@ -31,8 +49,11 @@ M.keymaps = {
     -- quick search & replace
     {{'v', 'n'}, '<C-f>', ':%s/'},
 
+    -- insert current date
+    {'n', '<C-d>', current_date},
+
     -- japanese input eskk
-    {'n', '<C-i>', ":lua kana()<cr>"},
+    {'n', '<C-i>', input_jp},
 
     -- buffer manipulation
     {'n', '<C-z>', vim.cmd.bprev},
@@ -136,7 +157,7 @@ M.theme = {
     "PmenuExtra",      "#44403f",   "NONE",
     "PmenuSel",        "#44403f",   "NONE",
     "PmenuThumb",      "#44403f",   "NONE",
-    "Statusline",      "#44403f",   "NONE",
+    "Statusline",      "NONE",      "NONE", -- all NONE order fixes the caret appearing issue
     "StatuslineNC",    "#44403f",   "NONE",
     "TabLine",         "#44403f",   "NONE",
     "CursorLine",      "NONE",      "#f3e9df",

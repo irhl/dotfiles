@@ -1,7 +1,11 @@
 -- nvim-telescope/telescope.nvim
-require('telescope').setup {
-    pickers = {
-    find_files = { hidden = true },
+-- + nvim-lua/plenary.nvim
+require('telescope').setup{
+  pickers = {
+    find_files = {
+      hidden = true,
+      theme = "dropdown",
+    }
   },
 }
 
@@ -9,7 +13,6 @@ vim.o.timeout    = true;
 vim.o.timeoutlen = 300;
 
 -- brenoprata10/nvim-highlight-colors
--- render valid choices: background, foreground, first_column
 require("nvim-highlight-colors").setup {
     render = 'foreground',
     enable_named_colors = false,
@@ -69,9 +72,3 @@ vim.g.eskk_enable_completion = 0
 vim.g.eskk_no_default_mappings = 1
 vim.g.eskk_keep_state = 0
 vim.g.eskk_egg_like_newline = 1
-
-_G.kana = function()
-  vim.cmd(("set keymap=" .. ((vim.g.kana and "") or "kana")))
-  vim.g.kana = not vim.g.kana
-  return nil
-end
