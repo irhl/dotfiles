@@ -1,7 +1,7 @@
 --[[@:
 
 to get started, download the plugins with the command below
-:lua gitPull()
+:lua git()
 
 +-----------------------+
 |                       |
