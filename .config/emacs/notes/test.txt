@@ -1,0 +1,25 @@
+##Untitled Document##
+ by: irhl
+
+#@Recent Activity#@
+ • bar.c     stuff to deal with librsvg
+ • kb.el     my custom modal editing rework
+ • imim.lua  alterations to the table concat
+
+#@UI Typeface#@
+ fonts that i use.
+
+ Aporetic  Mono  Bold      10  -+ emacs
+ Apple SF  Mono  Semibold  9   -+ foot
+ Apple SF  Pro   Bold      15  -+ imim
+ Apple SF  Pro   Semibold  12  -+ bar
+
+#!README: some stuff in my head#!
+ Proportional fonts are for static content like
+ essays, webpages, or presentations.
+
+ Monospace fonts provide uniform character width,
+ making them ideal for dynamic content such as logs,
+ timestamps, or file paths.
+
+ //BACK// //NEXT// //LOAD//
