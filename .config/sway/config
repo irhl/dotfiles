@@ -22,7 +22,7 @@ bindsym $mod+0 exec amixer -c 1 -q sset Master 4%+
 bindsym $mod+9 exec amixer -c 1 -q sset Master 4%-
 bindsym $mod+n exec firefox
 bindsym $mod+z exec foot -e bash --rcfile $ENV
-bindsym $mod+e exec em
+bindsym $mod+e exec ed
 bindsym $mod+s exec grim -g "$(slurp)"     $HOME/$(date +%F-%H-%M-%S).jpg
 bindsym $mod+y exec grim -g "0,0 1366x768" $HOME/$(date +%F-%H-%M-%S).jpg
 bindsym $mod+c kill
