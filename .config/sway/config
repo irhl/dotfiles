@@ -1,7 +1,8 @@
-output VGA-1 {
-   adaptive_sync off
+output eDP-1 {
+   mode 1920x1200
+   scale 1.0
    pos 0,0
-   bg #dbd5d0 solid_color
+   bg #ededed solid_color
 }
 
 input type:keyboard {
@@ -14,20 +15,27 @@ input type:pointer {
    pointer_accel "0"
 }
 
+input type:touchpad {
+   accel_profile "flat"
+   pointer_accel "0.8"
+   dwt enabled
+   tap enabled
+   natural_scroll enabled
+   middle_emulation disabled
+}
+
 set $mod Mod1
-set $alt Mod4
 floating_modifier $mod normal
 
-bindsym $mod+0 exec amixer -c 1 -q sset Master 4%+
-bindsym $mod+9 exec amixer -c 1 -q sset Master 4%-
-bindsym $mod+n exec firefox
+bindsym $mod+e exec 00
 bindsym $mod+z exec foot -e bash --rcfile $ENV
-bindsym $mod+e exec ed
-bindsym $mod+s exec grim -g "$(slurp)"     $HOME/$(date +%F-%H-%M-%S).jpg
-bindsym $mod+y exec grim -g "0,0 1366x768" $HOME/$(date +%F-%H-%M-%S).jpg
+bindsym $mod+n exec MOZ_ENABLE_WAYLND=1 firefox
+bindsym $mod+s exec grim -g "$(slurp)"      $HOME/$(date +%F-%H-%M-%S).jpg
+bindsym $mod+y exec grim -g "0,0 1920x1200" $HOME/$(date +%F-%H-%M-%S).jpg
 bindsym $mod+c kill
 bindsym $mod+a fullscreen
-bindsym $mod+f floating toggle
+bindsym $mod+shift+r reload
+bindsym $mod+shift+q exit
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -40,24 +48,31 @@ bindsym $mod+shift+3 move container to workspace number 3
 bindsym $mod+shift+4 move container to workspace number 4
 bindsym $mod+shift+5 move container to workspace number 5
 bindsym $mod+shift+6 move container to workspace number 6
-bindsym $mod+shift+r reload
-bindsym $mod+shift+q exit
 
-default_border pixel 0
-hide_edge_borders both
+mode "resize" {
+    bindsym Up    resize shrink height 90px
+    bindsym Down  resize grow   height 90px
+    bindsym Left  resize shrink width  90px
+    bindsym Right resize grow   width  90px
 
-gaps left 172
-gaps right 388
-gaps top 158
-gaps bottom 98
+    bindsym c mode "default"
+    bindsym $mod+d nop
+    }
+    bindsym $mod+r mode "resize"
 
+mode "drag" {
+    bindsym c exec swaymsg seat seat0 cursor release button1, mode "default"
+    bindsym $mod+r nop
+    }
+    bindsym $mod+d exec "swaymsg mode drag; swaymsg seat seat0 cursor press button1"
+
+default_border none
 for_window [app_id=".*"] floating enable, titlebar hide
-for_window [app_id=foot] border pixel 0, resize set 440 340
 
-# (i) border, background, foreground, indicator, child
-set $ac #fcf5ee
-set $fg #fcf5ee
+set $ac #ffffff
+set $fg #ffffff
 
+# ? border, background, foreground, indicator, child
 client.focused          $ac $ac $ac $ac $ac
 client.focused_inactive $ac $ac $ac $ac $ac
 client.unfocused        $ac $ac $ac $ac $ac
@@ -69,4 +84,11 @@ seat seat0 xcursor_theme \
 exec_always gsettings set org.gnome.desktop.interface cursor-theme \
   "macOS-Monterey" 24
 
-exec /home/irhl/Projects/bar/bar
+exec "$HOME/Projects/bar/bar"
+xwayland disable
+
+# /etc/sudoers.d/wheel must be modified to not require a password for zzz.
+exec swayidle -w \
+    timeout 3600 'sudo zzz' \
+    timeout 1200 'swaymsg "output * dpms off"' \
+    resume       'swaymsg "output * dpms on"'
