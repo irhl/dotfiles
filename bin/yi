@@ -15,12 +15,12 @@ case $1 in
                 --embed-thumbnail \
                 --ppa "EmbedThumbnail+ffmpeg_o:-c:v mjpeg \
                 -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\"" \
-                -o "$HOME/Music/%(title)s.%(ext)s"
+                -o "$HOME/Music/%(artist)s - %(title)s.%(ext)s"
         ;;
     mp4)
         yt-dlp $2 \
                 --write-sub --sub-lang=en \
-                -f "bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[height<=1080]" \
+                -f "bestvideo[ext=mp4][height<=1080]+bestaudio/best[ext=mp4][height<=1080]" \
                 -o "$HOME/Videos/%(title)s.%(ext)s"
         ;;
 esac
