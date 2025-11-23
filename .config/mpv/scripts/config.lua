@@ -1,18 +1,21 @@
 local M = {}
 
 M.keymaps = {
-    left  = 'seek -10',
-    right = 'seek 10',
+    left  = 'seek -5',
+    right = 'seek 5',
     space = 'cycle pause',
 
     q = 'quit',
     z = 'playlist-next',
     Z = 'playlist-prev',
     x = 'add volume 5',
-    X = 'add volume -10',
+    X = 'add volume -5',
+    c = 'add speed 0.50',
+    C = 'set speed 0.80',
     m = 'cycle mute',
-    s = 'cycle sub down',
-    S = 'cycle sub visibility',
+    v = 'cycle sub down',
+    V = 'cycle sub visibility',
+    s = 'screenshot video',
 
     h = 'add video-pan-x  -0.01',
     j = 'add video-pan-y   0.01',
@@ -21,64 +24,65 @@ M.keymaps = {
     f = 'add video-zoom    0.1',
     F = 'add video-zoom   -0.1',
     r = 'set video-zoom    0.01 ; ' ..
-        'set video-pan-x   0 ; ' ..
-        'set video-pan-y   0 ; ' ..
+        'set video-pan-x   0 ;    ' ..
+        'set video-pan-y   0 ;    ' ..
         'set video-rotate  0',
 
-    ['/, MBTN_RIGHT'] = 'vf toggle hflip',
+    ['/, MBTN_RIGHT'] = 'vf toggle format=yuv420p,hflip',
     e = 'cycle_values video-rotate 90 180 270 0',
 
-    f1 = 'af toggle equalizer=w=1:t=o:f=55:g=16:r=f64,dynaudnorm=b=1:m=1',
-    f2 = 'af toggle asetrate=44100*1.08',
-    f3 = 'af toggle asetrate=44100*1.12',
-    f4 = 'af toggle asetrate=44100*1.22',
-    f5 = 'af toggle asetrate=44100*1.32',
-    f6 = 'af toggle asetrate=44100*1.52',
+    f4 = 'af remove asetrate ; af add asetrate=44100*1.06',
+    f5 = 'af remove asetrate ; af add asetrate=44100*1.12',
+    f6 = 'af remove asetrate ; af add asetrate=44100*1.22',
+    f7 = 'af remove asetrate ; af add asetrate=44100*1.32',
+    f8 = 'af remove asetrate ; af add asetrate=44100*1.40',
+    f3 = 'af set "" ; ' ..
+         'set speed 1.0',
+
+    f2 = 'af toggle "lavfi=[pan=1c|c0=1*c0+1*c1]"',
+    f1 = 'af add equalizer=w=1:t=o:f=55:g=16:r=f64,dynaudnorm=b=1:m=1',
+
+    ['Shift+d'] = item_trash,
+    ['Shift+b'] = item_set_bg,
 }
 
 M.options = {
+    ao = 'alsa',
     volume = '60',
     volume_max = '100',
-    ao = 'alsa',
-    audio_device = 'alsa/plug:dmix',
 
     vo = 'gpu',
+    vd_lavc_dr = 'no',
     video_sync = 'audio',
-    audio_display = 'no',
-
-    scale = 'ewa_lanczos',
-    cscale = 'ewa_lanczos',
-    dscale = 'lanczos',
-    dither_depth = 'auto',
-    correct_downscaling = 'yes',
-    linear_downscaling = 'yes',
-    sigmoid_upscaling = 'yes',
-
-    cache = 'yes',
-    demuxer_max_bytes = '20M',
-    demuxer_max_back_bytes = '20M',
+    hwdec = 'vaapi',
+    hdr_compute_peak = 'no',
 
     loop_file = 'yes',
+    autocreate_playlist = 'same',
+
+    window_dragging = 'no',
+    no_input_cursor = 'no',
     input_default_bindings = 'no',
     input_builtin_bindings = 'no',
 
     alpha             = 'no',
-    background_color  = '#fcf5ee',
-    geometry          = '17%',
-    ontop             = 'yes',
-    window_dragging   = 'yes',
+    background_color  = '#000000',
+    geometry          = '24%',
     video_zoom        = '0.01',
+    ontop             = 'yes',
 
     osc               = 'no',
     osd_level         = '0',
     osd_align_y       = 'top',
 
-    sub_font          = 'Maple Mono',
-    sub_color         = '#fcf5ee',
+    sub_font          = 'azukifontB',
+    sub_font_size     = '70',
+    sub_color         = '#fcefbd',
+    sub_shadow_color  = '#333333',
     sub_shadow_offset = '2',
-    sub_shadow_color  = '#5b5958',
-    sub_border_size   = '0',
-    sub_margin_x      = '70',
+    sub_border_size   = '4',
+    sub_margin_x      = '50',
+    sub_margin_y      = '50',
 
     slang = 'nl,jp,jpn,en,eng',
     alang = 'nl,jp,jpn,en,eng',

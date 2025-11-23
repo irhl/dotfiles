@@ -1,17 +1,22 @@
-local script_directory = debug.getinfo(1, 'S').source:sub(2):match('(.*/)')
-package.path = script_directory .. '?.lua;' .. package.path
+package.path = debug.getinfo(1, 'S').source:match("@(.*[/\\])")
+.. '?.lua;'
+.. package.path
 
 local mp = require 'mp'
+
+local utilfn = require('utilfn')
 local config = require('config')
 
 for pattern, action in pairs(config.keymaps) do
     local function keymatch(k)
-        return k:match('[left|right|zZxXfF|hjkl]') and "repeatable" or nil
+        return k:match('[left|right|zZxXfF|hjkl]')
+           and "repeatable" or nil
     end
 
     for k in pattern:gmatch('[^,]+') do
         local function action_handle()
-            (type(action) == "function" and action or function() mp.command(action) end)()
+            (type(action) == "function"
+             and action or function() mp.command(action) end)()
         end
         mp.add_forced_key_binding(k, action_handle, keymatch(k))
     end
