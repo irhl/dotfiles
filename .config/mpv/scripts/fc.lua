@@ -35,8 +35,8 @@ function item_set_bg()
     local mode = path:lower():find("tile") and "tile" or "fill"
     os.execute(string.format('swaymsg "output * bg %q %s"', path, mode))
 
-    local config_path = os.getenv("HOME") .. "/.config/sway/config"
-    local f1 = io.open(config_path, "r")
+    local path_config = os.getenv("HOME") .. "/.config/sway/config"
+    local f1 = io.open(path_config, "r")
     if not f1 then
         mp.osd_message("file failed to open", 2)
         return
@@ -52,7 +52,7 @@ function item_set_bg()
     end
     f1:close()
 
-    local f2 = io.open(config_path, "w")
+    local f2 = io.open(path_config, "w")
     if not f2 then
         mp.osd_message("file failed to write", 2)
         return
