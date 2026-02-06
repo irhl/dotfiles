@@ -43,7 +43,7 @@ M.keymaps = {
         'set video-pan-y   0 ;    ' ..
         'set video-rotate  0 ;    ' ..
         'set speed         1 ;    ' ..
-        'vf set ""; ' ..
+        'vf set "";               ' ..
         'af set ""',
     R = 'set speed         1 ;    ' ..
         'af set ""',

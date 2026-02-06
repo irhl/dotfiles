@@ -2,16 +2,15 @@
 
 alias make="make CC=gcc"
 alias wget="wget --no-hsts"
-
 alias fcl='fc-list'
-alias fcf='fc-list : family | sort | uniq'
+alias fcf='fc-list : family|sort|uniq'
 alias fci='fc-match -v | grep -E "hint|rgb|lcd|dpi"'
 
-er() {
-  eval "$@" | LESSCHARSET=utf-8 less
+page() {
+    eval "$@" | LESSCHARSET=utf-8 less
 }
 
-ec() {
+pick() {
    grim -g "$(slurp -p)" -t ppm - |
    magick - -format '%[pixel:p{0,0}]' txt:-
 }
